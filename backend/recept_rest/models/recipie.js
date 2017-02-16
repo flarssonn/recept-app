@@ -1,19 +1,27 @@
+var Sequelize = require('sequelize');
+var sequelize = require('../db/..'); // add db fie
 
-var counter = 100;
+var Recipie = null;
 
-function Recipie(id, name, description, picture) {
-    this.id = (!id)
-        ? counter++
-        : id;
-    this.name = (!name)
-        ? "empty"
-        : name;
-    this.description = (!description)
-        ? "empty"
-        : description;
-    //this.picture = (!done)
-        //? false
-        //: done;
-};
+var Recipie = sequelize.define('Recipies', {
+    id : {
+        type: Sequelize.BIGINT,
+        autoIncrement: true,
+        primaryKey: true
+    },
+    name : {
+        type: Sequelize.STRING
+    },
+    description : {
+        type: Sequelize.STRING
+    }
+    //picture : {
+        //TODO
+    //}
+},{
+    timestamps: false
+});
+
+
 
 module.exports = Recipie;
