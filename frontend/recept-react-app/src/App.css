@@ -1,21 +1,40 @@
+
+
 .App {
   text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  animation: App-logo-spin infinite 30s linear;
+  height: 120px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+.Super-header{
+    font-size: 45pt;
+    padding: 0pt;
+    margin-top: 0px;
+    margin-bottom: 20px;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+
+  height: 280px;
+  padding: 15px;
   color: white;
+  background: url('./veg.jpg');
+
 }
 
 .App-intro {
   font-size: large;
+
+}
+
+.App-navbar{
+    height: 75px;
+    background-color: #f44e8e;
 }
 
 @keyframes App-logo-spin {
