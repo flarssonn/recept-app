@@ -1,5 +1,5 @@
 var Sequelize = require('sequelize');
-var sequelize = require('../db/..'); // add db fie
+var sequelize = require('../db/pie.js'); // in the works
 
 var Recipie = null;
 
