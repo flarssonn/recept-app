@@ -1,12 +1,12 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var Tag = sequelize.define('Tag', {
-    name: DataTypes.STRING
+    tag: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        //Tag.belongsToMany(models.Recipe);
+        Tag.belongsToMany(models.Recipe, {through: models.IsTagged})
       }
     }
   });
