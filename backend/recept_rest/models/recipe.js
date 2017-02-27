@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
       associate: function(models) {
         // associations can be defined here
         Recipe.belongsTo(models.User);
-        //Recipe.belongsToMany(models.Tag);
+        Recipe.belongsToMany(models.Tag, {through: models.IsTagged});
       }
     }
   });
