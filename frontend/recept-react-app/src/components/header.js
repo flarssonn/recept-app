@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import logo from './frying-pan.svg';
-import backgroundVeg from './veg.jpg';
+
 //import './App.css';
 import './header.css'
 
