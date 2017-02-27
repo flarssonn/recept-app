@@ -1,26 +1,16 @@
-/*
-
-A model object for user
-
-*/
-
-var Sequelize = require('sequelize');
-var sequelize = require('../db/..'); //add db file in url
-
-var User = sequelize.define('Users', {
-  username: {
-    type: Sequelize.STRING,
-    primaryKey: true
-  },
-  password: {
-    type: Sequelize.STRING
-  },
-  /*
-  email: {
-    type:
-  }
-  */
-
-})
-
-module.exports = User;
+'use strict';
+module.exports = function(sequelize, DataTypes) {
+  var User = sequelize.define('User', {
+    username: DataTypes.STRING,
+    password: DataTypes.STRING,
+    email: DataTypes.STRING
+  }, {
+    classMethods: {
+      associate: function(models) {
+        // associations can be defined here
+        User.hasMany(models.Recipe);
+      }
+    }
+  });
+  return User;
+};
