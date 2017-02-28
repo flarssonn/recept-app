@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import $ from 'jquery';
 import './App.css';
 import {Header} from './components/header.js';
-import $ from 'jquery';
+
 
 class App extends Component {
 
@@ -10,11 +11,12 @@ class App extends Component {
             url: 'http://localhost:3001/',
             dataType: 'json',
             cache: false,
+            type: 'GET',
             success: function() {
-                console.log('PARTY!');
+                console.log("Party!!");
             },
-            error: function() {
-                console.log('Axel');
+            error: function(err) {
+                console.log(err);
             }
         });
     }
