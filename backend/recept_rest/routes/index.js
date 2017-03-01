@@ -3,7 +3,9 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+    res.json("asd");
   res.render('index', { title: 'nej' });
+
 });
 
 module.exports = router;
