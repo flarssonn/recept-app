@@ -4,7 +4,6 @@ var Recipe = require('../models/recipe.js');
 
 //Get all recipes
 router.get('/', function(req, res, next) {
-    // Promised based
     Recipe.findAll().then(function(recipes) {
         res.json(recipes);
     });
@@ -40,4 +39,5 @@ router.post('/delete/:id', function(req, res, next) {
       }
     )
 });
+
 module.exports = router;

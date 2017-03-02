@@ -36,7 +36,9 @@ router.post('/disable/:id', function(req, res, next) {
     { where:
       {id: rid}
     }
-  )
+  );
 });
+// UPDATE post SET updatedAt = null WHERE deletedAt NOT NULL;
+
 
 module.exports = router;
