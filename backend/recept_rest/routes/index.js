@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
   //   password: "bob",
   //   email: "thebob"
   // }).then(function(){
-    res.json("Recipe");
+    res.json("Index");
   // });
 });
 
