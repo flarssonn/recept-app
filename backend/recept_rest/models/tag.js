@@ -6,7 +6,10 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        Tag.belongsToMany(models.Recipe, {through: models.IsTagged});
+        Tag.belongsToMany(models.Recipe, {
+          through: models.IsTagged,
+          onDelete: 'cascade'
+        });
       }
     }
   });

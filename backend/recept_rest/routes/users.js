@@ -38,8 +38,5 @@ router.post('/disable/:id', function(req, res, next) {
     }
   );
 });
-// UPDATE post SET updatedAt = null WHERE deletedAt NOT NULL;
-
-});
 
 module.exports = router;
