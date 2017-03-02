@@ -36,7 +36,7 @@ router.post('/disable/:id', function(req, res, next) {
     { where:
       {id: rid}
     }
-  );
+  )
 });
 
 module.exports = router;
