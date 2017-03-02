@@ -4,13 +4,45 @@ var models = require("../models");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  // models.User.create({
-  //   username: "Bob",
-  //   password: "bob",
-  //   email: "thebob"
-  // }).then(function(){
-    res.json("Index");
-  // });
+    res.json("Start");
 });
 
+router.get('/init', function(req, res, next) {
+  models.User.create({
+    username: "Bob",
+    password: "bob",
+    email: "thebob"
+  }).then(function() {
+    models.Recipe.create({
+      title: "Pie",
+      ingredients: "small pies",
+      description: "put together",
+      piclink: "google"
+    }).then(function() {
+      models.Tag.create({
+        tag: "tasty"
+      }).then(function() {
+        res.json("done");
+      });
+    });
+  });
+});
+
+router.get('/ass', function(res, req, next) {
+  var usr = models.User.findAll({
+    where: {username: "Bob"}
+  });
+  var rec = models.User.findAll({
+    where: {id: 1}
+  });
+  var tag = models.Tag.findAll({
+    where: {tag: "tasty"}
+  });
+
+  usr.setRecipes(rec).then(function() {
+    rec.setTags(tag).then(function() {
+      res.json("associated");
+    });
+  });
+});
 module.exports = router;
