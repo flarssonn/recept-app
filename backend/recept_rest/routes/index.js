@@ -31,18 +31,20 @@ router.get('/init', function(req, res, next) {
 router.get('/ass', function(res, req, next) {
   var usr = models.User.findAll({
     where: {username: "Bob"}
-  });
-  var rec = models.User.findAll({
+  })[0];
+  var rec = models.Recipe.findAll({
     where: {id: 1}
   });
   var tag = models.Tag.findAll({
     where: {tag: "tasty"}
   });
 
-  usr.setRecipes(rec).then(function() {
-    rec.setTags(tag).then(function() {
-      res.json("associated");
-    });
+  usr.setRecipes([]).then(function() {
+    // nada
+  });
+
+  rec.setTags(tag).then(function() {
+    res.json("associated");
   });
 });
 module.exports = router;
