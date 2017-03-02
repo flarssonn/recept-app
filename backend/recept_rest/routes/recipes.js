@@ -34,9 +34,10 @@ router.post('/add', function(req, res, next) {
 //Delete a recipe
 router.post('/delete/:id', function(req, res, next) {
     var rid = parseInt(req.params.id);
-    Recipe.destroy({
+    Recipe.destroy(
       where: {
-        id: rid
-      };
+        {id: rid}
+      }
+    )
 });
 module.exports = router;
