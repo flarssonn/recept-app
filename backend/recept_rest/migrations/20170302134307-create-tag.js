@@ -2,14 +2,16 @@
 module.exports = {
   up: function(queryInterface, Sequelize) {
     return queryInterface.createTable('Tags', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
-      },
+      // id: {
+      //   allowNull: false,
+      //   autoIncrement: true,
+      //   primaryKey: true,
+      //   type: Sequelize.INTEGER
+      // },
       tag: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        primaryKey: true,
+        allowNull: true
       },
       createdAt: {
         allowNull: false,
