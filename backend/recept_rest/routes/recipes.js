@@ -21,10 +21,10 @@ router.get('/:id', function(req, res, next) {
 //Add a recipe
 router.post('/add', function(req, res, next) {
     Recipe.create({
-      title: title,
-      ingredients: ingredients,
-      description: description,
-      piclink: piclink
+      title: req.body.title,
+      ingredients: req.body.ingredients,
+      description: req.body.description,
+      piclink: req.body.piclink
     }).then(function() {
       res.redirect('/');
     });
