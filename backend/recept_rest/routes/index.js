@@ -31,7 +31,7 @@ router.get('/init', function(req, res, next) {
 router.get('/ass', function(res, req, next) {
   var usr = models.User.findAll({
     where: {username: "Bob"}
-  })[0];
+  });
   var rec = models.Recipe.findAll({
     where: {id: 1}
   });
@@ -39,12 +39,12 @@ router.get('/ass', function(res, req, next) {
     where: {tag: "tasty"}
   });
 
-  usr.setRecipes([]).then(function() {
+  usr.setRecipes(rec).then(function() {
     // nada
   });
 
-  rec.setTags(tag).then(function() {
-    res.json("associated");
-  });
+  //rec.setTags(tag).then(function() {
+  //  res.json("associated");
+  //});
 });
 module.exports = router;
