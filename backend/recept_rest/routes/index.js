@@ -30,17 +30,17 @@ router.get('/init', function(req, res, next) {
 
 router.get('/ass', function(req, res, next) {
   models.User.findOne({
-    where: {username: "Bob"}
+    where: {username: "Beb"}
   }).then(function(bob) {
     models.Recipe.findById(1).then(function(paj) {
       bob.addRecipe(paj);
+      res.json(paj)
     });
   });
 
   models.Recipe.findById(1).then(function(paj) {
     models.Tag.findById(1).then(function(tasty) {
       tasty.addRecipe(paj)
-      res.json("associated")
     })
   })
 
