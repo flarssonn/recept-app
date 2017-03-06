@@ -20,7 +20,7 @@ router.get('/init', function(req, res, next) {
       piclink: "google"
     }).then(function() {
       models.Tag.create({
-        tag: "tasty"
+        TagID: "tasty"
       }).then(function() {
         res.json("done");
       });
@@ -28,21 +28,27 @@ router.get('/init', function(req, res, next) {
   });
 });
 
-router.get('/ass', function(res, req, next) {
+router.get('/ass', function(req, res, next) {
   var usr = models.User.findAll({
     where: {username: "Bob"}
+  }).then(function() {
+    res.json("hi");
   });
-  var rec = models.User.findAll({
-    where: {id: 1}
+  var rec = models.Recipe.findAll({
+    where: {RecipeID: 1}
   });
-  var tag = models.Tag.findAll({
-    where: {tag: "tasty"}
-  });
+  // var tag = models.Tag.findAll({
+  //   where: {TagID: "tasty"}
+  // });
+  // usr.setRecipes(rec[0]).then(function() {
+  //   res.json("associated");
+  // });
 
-  usr.setRecipes(rec).then(function() {
-    rec.setTags(tag).then(function() {
-      res.json("associated");
-    });
-  });
+  // usr[0].getRecipes().then(function() {
+    // rec[0].setTags(tag).then(function() {
+    // res.json("yey");
+      // res.json("associated");
+    // });
+  // });
 });
 module.exports = router;

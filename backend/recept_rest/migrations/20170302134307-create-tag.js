@@ -8,10 +8,11 @@ module.exports = {
       //   primaryKey: true,
       //   type: Sequelize.INTEGER
       // },
-      tag: {
+      TagID: {
         type: Sequelize.STRING,
         primaryKey: true,
-        allowNull: true
+        allowNull: false,
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

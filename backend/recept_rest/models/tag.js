@@ -7,7 +7,9 @@ module.exports = function(sequelize, DataTypes) {
       associate: function(models) {
         // associations can be defined here
         Tag.belongsToMany(models.Recipe, {
-          as: "tags",
+          as: "Tags",
+          foreignKey: "tag",
+          otherKey: "id",
           through: models.IsTagged,
           onDelete: 'cascade'
         });

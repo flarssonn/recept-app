@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
-var Recipe = require('../models/recipe.js');
+var models = require('../models');
 
 //Get all recipes
 router.get('/', function(req, res, next) {
-    Recipe.findAll().then(function(recipes) {
+    models.Recipe.findAll().then(function(recipes) {
         res.json(recipes);
     });
 });
@@ -12,14 +12,14 @@ router.get('/', function(req, res, next) {
 //Get single recipe
 router.get('/:id', function(req, res, next) {
     // Promised based
-    Recipe.findById(id).then(function(recipe) {
+    models.Recipe.findById(id).then(function(recipe) {
         res.json(recipe);
     });
 });
 
 //Add a recipe
 router.post('/add', function(req, res, next) {
-    Recipe.create({
+    models.Recipe.create({
       title: req.body.title,
       ingredients: req.body.ingredients,
       description: req.body.description,
@@ -33,11 +33,11 @@ router.post('/add', function(req, res, next) {
 //Delete a recipe
 router.post('/delete/:id', function(req, res, next) {
     var rid = parseInt(req.params.id);
-    Recipe.destroy(
+    models.Recipe.destroy({
       where: {
-        {id: rid}
+        id: rid
       }
-    )
+    })
 });
 
 module.exports = router;
