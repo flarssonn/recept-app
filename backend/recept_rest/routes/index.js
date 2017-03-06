@@ -50,5 +50,9 @@ router.get('/ass', function(req, res, next) {
       // res.json("associated");
     // });
   // });
+
+  //rec.setTags(tag).then(function() {
+  //  res.json("associated");
+  //});
 });
 module.exports = router;
