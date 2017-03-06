@@ -4,6 +4,7 @@ module.exports = function(sequelize, DataTypes) {
     tag: {
       type: DataTypes.STRING,
       unique: true
+    }
   }, {
     classMethods: {
       associate: function(models) {
