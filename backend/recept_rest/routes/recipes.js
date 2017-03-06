@@ -11,20 +11,46 @@ router.get('/', function(req, res, next) {
 
 //Get single recipe
 router.get('/:id', function(req, res, next) {
-    // Promised based
     models.Recipe.findById(id).then(function(recipe) {
         res.json(recipe);
     });
 });
 
 //Add a recipe
-router.post('/add', function(req, res, next) {
+router.post('/add/:user', function(req, res, next) {
+  // create recipe
     models.Recipe.create({
       title: req.body.title,
       ingredients: req.body.ingredients,
       description: req.body.description,
       piclink: req.body.piclink
-    }).then(function() {
+    }).then(function(rec) {
+      
+      // connect it to user
+      var usr = req.params.user;
+      models.User.findOne({
+        where: {username: usr}
+      }).then(function(u) {
+        u.addRecipe(rec);
+      });
+
+      // Connect to tags, maybe create tag first.
+      var tags = req.body.tags.split(',')
+      tags.forEach(function(t) {
+        models.Tag.findOne({
+          where: {tag: t}
+        }).then(function(existingTag) {
+          if (existingTag === null) {
+            models.Tag.create({
+              tag: t
+            }).then(function (createdTag) {
+              rec.addTag(createdTag);
+            });
+          } else {
+            rec.addTag(existingTag);
+          }
+        });
+      });
       res.redirect('/');
     });
 });
