@@ -9,13 +9,9 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        Recipe.belongsTo(models.User);
+        // Recipe.belongsTo(models.User);
         Recipe.belongsToMany(models.Tag, {
-          as: 'Recipes',
-          foreignKey: "id",
-          otherKey: "tag",
-          through: models.IsTagged,
-          onDelete: 'cascade'
+          through: 'IsTagged'
         });
       }
     }

@@ -20,7 +20,7 @@ router.get('/init', function(req, res, next) {
       piclink: "google"
     }).then(function() {
       models.Tag.create({
-        TagID: "tasty"
+        tag: "tasty"
       }).then(function() {
         res.json("done");
       });
@@ -29,22 +29,33 @@ router.get('/init', function(req, res, next) {
 });
 
 router.get('/ass', function(req, res, next) {
-  var usr = models.User.findAll({
+  models.User.findOne({
     where: {username: "Bob"}
-  }).then(function() {
-    res.json("hi");
+  }).then(function(bob) {
+    models.Recipe.findById(1).then(function(paj) {
+      bob.addRecipe(paj);
+    });
   });
-  var rec = models.Recipe.findAll({
-    where: {RecipeID: 1}
-  });
+
+  models.Recipe.findById(1).then(function(paj) {
+    models.Tag.findById(1).then(function(tasty) {
+      tasty.addRecipe(paj)
+      res.json("associated")
+    })
+  })
+
+  //var rec = models.Recipe.findAll({
+  //  where: {RecipeID: 1}
+  //});
+
   // var tag = models.Tag.findAll({
   //   where: {TagID: "tasty"}
   // });
-  // usr.setRecipes(rec[0]).then(function() {
-  //   res.json("associated");
+  // usr.setRecipes([]).then(function() {
+  //   res.json("associated nothing");
   // });
 
-  // usr[0].getRecipes().then(function() {
+  // usr.getRecipes().then(function() {
     // rec[0].setTags(tag).then(function() {
     // res.json("yey");
       // res.json("associated");
