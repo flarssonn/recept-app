@@ -43,27 +43,5 @@ router.get('/ass', function(req, res, next) {
       tasty.addRecipe(paj)
     })
   })
-
-  //var rec = models.Recipe.findAll({
-  //  where: {RecipeID: 1}
-  //});
-
-  // var tag = models.Tag.findAll({
-  //   where: {TagID: "tasty"}
-  // });
-  // usr.setRecipes([]).then(function() {
-  //   res.json("associated nothing");
-  // });
-
-  // usr.getRecipes().then(function() {
-    // rec[0].setTags(tag).then(function() {
-    // res.json("yey");
-      // res.json("associated");
-    // });
-  // });
-
-  //rec.setTags(tag).then(function() {
-  //  res.json("associated");
-  //});
 });
 module.exports = router;
