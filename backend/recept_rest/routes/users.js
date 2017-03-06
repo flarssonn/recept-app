@@ -51,3 +51,10 @@ router.post('/disable/:id', function(req, res, next) {
 
 
 module.exports = router;
+
+/*
+-get single user
+-get all users
+-create users
+-delete user
+*/
