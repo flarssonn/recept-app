@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import $ from 'jquery';
 import './App.css';
 import {Header} from './components/header.js';
+import {Footer} from './components/footer.js';
 
 
 class App extends Component {
@@ -25,6 +26,7 @@ class App extends Component {
         return (
             <div>
                 <Header />
+                <Footer />
             </div>
         );
     }
