@@ -1,7 +1,7 @@
 import React from 'react';
 import './header.css';
-import { Button } from 'react-bootstrap';
-import { ButtonGroup} from 'react-bootstrap';
+import { ButtonGroup, Button, } from 'react-bootstrap';
+import { Search } from './search.js'
 
 class Navbar extends React.Component  {
 
@@ -9,17 +9,12 @@ class Navbar extends React.Component  {
         return(
 
             <div className="navbar">
-              <ButtonGroup >
-
-                <Button bsStyle="warning">Primary</Button>
-
-                <Button bsStyle="warning">Success</Button>
-
-                <Button bsStyle="warning">Info</Button>
-
-              </ButtonGroup>
-            </div>
-
+                <ButtonGroup >
+                  <Button bsStyle="success">Profile</Button>
+                  <Button bsStyle="success">Info</Button>
+                  <Button bsStyle="success">Settings</Button>
+                </ButtonGroup>
+              </div>
         );
     }
 
