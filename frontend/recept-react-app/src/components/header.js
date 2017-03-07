@@ -12,8 +12,8 @@ class Header extends React.Component  {
               <div className="header">
                   <Grid>
                     <Row className="show-grid">
-                      <Col xs={6} md={2}>
-                        <h1>Recipie</h1>
+                      <Col xs={6} md={3}>
+                        <h1 className="super-header">Recipie</h1>
                       </Col>
                       <Col xs={6} md={6}>
                           <Search />

@@ -10,9 +10,9 @@ class Navbar extends React.Component  {
 
             <div className="navbar">
                 <ButtonGroup >
-                  <Button bsStyle="warning">Primary</Button>
-                  <Button bsStyle="warning">Success</Button>
-                  <Button bsStyle="warning">Info</Button>
+                  <Button bsStyle="success">Profile</Button>
+                  <Button bsStyle="success">Info</Button>
+                  <Button bsStyle="success">Settings</Button>
                 </ButtonGroup>
               </div>
         );
