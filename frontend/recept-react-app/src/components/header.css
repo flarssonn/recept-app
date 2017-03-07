@@ -6,10 +6,9 @@
 }
 
 .header {
-  height: 380px;
+  height: 100px;
   color: white;
   background: url('./veg.jpg');
-  text-align: center;
   margin: 0px;
   padding: 0px;
 }
@@ -22,9 +21,12 @@
     padding: 0px;
 }
 
+.search {
+    margin-top: 50px;
+}
+
 .navbar {
-    height: 70px;
-    background-color: green;
+    margin-top: 50px;
 }
 
 .h1-footer {

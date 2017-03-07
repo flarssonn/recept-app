@@ -3,19 +3,15 @@ import './header.css';
 import { Button } from 'react-bootstrap';
 import { ButtonGroup} from 'react-bootstrap';
 
-class Navbar extends React.Component  {
+class Search extends React.Component  {
 
     render() {
         return(
 
-            <div className="navbar">
+            <div className="search">
               <ButtonGroup >
+                <Button>Search</Button>
 
-                <Button bsStyle="warning">Primary</Button>
-
-                <Button bsStyle="warning">Success</Button>
-
-                <Button bsStyle="warning">Info</Button>
 
               </ButtonGroup>
             </div>
@@ -25,4 +21,4 @@ class Navbar extends React.Component  {
 
 }
 
-export {Navbar};
+export {Search};
