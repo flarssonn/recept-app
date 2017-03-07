@@ -2,6 +2,8 @@ import React from 'react';
 import logo from './frying-pan.svg';
 import './header.css';
 import {Navbar} from './navbar.js';
+import { Button } from 'react-bootstrap';
+import { ButtonToolbar} from 'react-bootstrap';
 
 class Header extends React.Component  {
 
@@ -13,18 +15,30 @@ class Header extends React.Component  {
                 <img className="App-logo" src={logo}  alt="logo" />
                 <h3>Find the recipie for your needs</h3>
 
-                <div className="btn-group" role="group" aria-label="Header buttons">
-                  <button type="button" className="btn btn-secondary">Fav</button>
-                  <button type="button" className="btn btn-secondary">Prof</button>
-                  <button type="button" className="btn btn-secondary">Pref</button>
+
+                <ButtonToolbar >
+                  <Button>Default</Button>
+
+                  <Button bsStyle="primary">Primary</Button>
+
+                  <Button bsStyle="success">Success</Button>
+
+                  <Button bsStyle="info">Info</Button>
+
+                  <Button bsStyle="warning">Warning</Button>
+
+                  <Button bsStyle="danger">Danger</Button>
+
+                  <Button bsStyle="link">Link</Button>
+                </ButtonToolbar>
+
                 </div>
 
-            </div>
             <div>
                 <Navbar />
             </div>
-          </div>  
-        );
+          </div>
+      );
 
     }
 
