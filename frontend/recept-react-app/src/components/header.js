@@ -2,17 +2,11 @@ import React from 'react';
 import logo from './frying-pan.svg';
 import './header.css';
 import {Navbar} from './navbar.js';
-<<<<<<< HEAD
 import { Button } from 'react-bootstrap';
 import { ButtonToolbar} from 'react-bootstrap';
 import { Grid } from 'react-bootstrap';
 import { Row } from 'react-bootstrap';
 import { Col } from 'react-bootstrap';
-=======
-import {ButtonToolbar} from 'react-bootstrap';
-import {Button} from 'react-bootstrap';
-
->>>>>>> de2f9298f19a295c8323e26faf123f60d5a84dfb
 
 class Header extends React.Component  {
 
@@ -31,7 +25,6 @@ class Header extends React.Component  {
                 <Col>
                 <h1>Hej</h1>
 
-<<<<<<< HEAD
                 </Col>
 
                 <div>
@@ -57,30 +50,7 @@ class Header extends React.Component  {
                   <Navbar />
               </div>
             </Grid>
-=======
-                    <div>
-                    <ButtonToolbar >
-                      <Button>Default</Button>
 
-                      <Button bsStyle="primary">Primary</Button>
-
-                      <Button bsStyle="success">Success</Button>
-
-                      <Button bsStyle="info">Info</Button>
-
-                      <Button bsStyle="warning">Warning</Button>
-
-                      <Button bsStyle="danger">Danger</Button>
-
-                      <Button bsStyle="link">Link</Button>
-                    </ButtonToolbar>
-                    </div>
-                </div>
-
-            <div>
-                <Navbar />
-            </div>
->>>>>>> de2f9298f19a295c8323e26faf123f60d5a84dfb
           </div>
       );
 
