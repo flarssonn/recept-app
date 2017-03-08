@@ -4,7 +4,7 @@ import './App.css';
 import {Header} from './components/header.js';
 import {Footer} from './components/footer.js';
 import { Router, Route, browserHistory } from 'react-router'
-import {MainContent} from './components/main.js'
+import {FirstPage} from './components/firstpage.js'
 import {Test1} from './components/test1.js'
 
 class App extends Component {
@@ -29,7 +29,7 @@ class App extends Component {
             <div>
                 <Header />
                   <Router history={browserHistory}>
-                    <Route path="/" component={MainContent}/>
+                    <Route path="/" component={FirstPage}/>
                     <Route path="/walla" component={Test1}/>
                   </Router>
                 <Footer />

@@ -3,7 +3,7 @@ import './header.css';
 import {Button} from 'react-bootstrap';
 import { browserHistory } from 'react-router';
 
-class MainContent extends React.Component  {
+class FirstPage extends React.Component  {
 
   handleClick(e){
     //e.preventDefault();
@@ -22,4 +22,4 @@ class MainContent extends React.Component  {
 
 }
 
-export {MainContent};
+export {FirstPage};
