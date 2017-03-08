@@ -11,13 +11,13 @@ class Header extends React.Component  {
               <div className="header">
 
                     <Row className="show-grid">
-                      <Col xs={6} md={3}>
+                      <Col xs={6} md={2}>
                         <h1 className="super-header">Recipie</h1>
                       </Col>
-                      <Col xs={6} md={6}>
+                      <Col xs={6} md={8}>
                           <Search />
                       </Col>
-                      <Col xs={6} md={3}>
+                      <Col xs={6} md={2}>
                           <Navbar />
                       </Col>
                     </Row>
