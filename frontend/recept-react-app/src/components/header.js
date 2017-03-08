@@ -3,6 +3,7 @@ import './header.css';
 import { Navbar } from './navbar.js';
 import { Search } from './search.js';
 import { Row, Col } from 'react-bootstrap';
+
 class Header extends React.Component  {
 
     render() {

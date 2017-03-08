@@ -29,3 +29,21 @@
 .navbar {
     margin-top: 50px;
 }
+
+.Registration {
+  text-align: center;
+
+}
+
+.Registration h1 {
+  font-size: 30pt;
+  padding-top: 50px;
+}
+
+.Registration Form {
+  padding-top: 20px;
+}
+
+.Registration Button {
+  margin-bottom: 50px;
+}
