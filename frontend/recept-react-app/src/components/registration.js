@@ -1,5 +1,5 @@
 import React from 'react';
-import './header.css';
+import './main.css';
 import {Row, Col, FormGroup, FormControl, ControlLabel, HelpBlock, Form, Button } from 'react-bootstrap';
 
 class Registration extends React.Component {

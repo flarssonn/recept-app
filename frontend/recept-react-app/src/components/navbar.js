@@ -1,5 +1,5 @@
 import React from 'react';
-import './header.css';
+import './main.css';
 import { ButtonGroup, Button, } from 'react-bootstrap';
 import { browserHistory } from 'react-router';
 
