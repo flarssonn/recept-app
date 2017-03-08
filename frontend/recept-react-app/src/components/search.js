@@ -8,8 +8,7 @@ class Search extends React.Component  {
         return(
 
             <div className="search">
-
-                <Row className="show-grid">
+              <Row className="show-grid">
                   <Col xs={6} md={4}>
                     <FormGroup>
                       <FormControl type="text" placeholder="Search" />
@@ -19,7 +18,6 @@ class Search extends React.Component  {
                     <Button bsStyle="default">Submit</Button>
                   </Col>
                 </Row>
-
             </div>
         );
     }
