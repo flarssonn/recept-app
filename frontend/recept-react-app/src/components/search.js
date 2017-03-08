@@ -9,12 +9,12 @@ class Search extends React.Component  {
 
             <div className="search">
               <Row className="show-grid">
-                  <Col xs={6} md={4}>
+                  <Col xs={6} md={10}>
                     <FormGroup>
                       <FormControl type="text" placeholder="Search" />
                     </FormGroup>
                   </Col>
-                  <Col xs={6} md={4}>
+                  <Col xs={6} md={2}>
                     <Button bsStyle="default">Submit</Button>
                   </Col>
                 </Row>
