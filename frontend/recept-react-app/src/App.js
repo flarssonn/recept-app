@@ -4,7 +4,6 @@ import './App.css';
 import {Header} from './components/header.js';
 import {Footer} from './components/footer.js';
 
-
 class App extends Component {
 
     componentDidMount() {

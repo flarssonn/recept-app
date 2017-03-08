@@ -1,16 +1,15 @@
 import React from 'react';
-import logo from './frying-pan.svg';
 import './header.css';
 import { Navbar } from './navbar.js';
 import { Search } from './search.js';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 class Header extends React.Component  {
 
     render() {
         return(
           <div>
               <div className="header">
-                  <Grid>
+
                     <Row className="show-grid">
                       <Col xs={6} md={3}>
                         <h1 className="super-header">Recipie</h1>
@@ -22,7 +21,7 @@ class Header extends React.Component  {
                           <Navbar />
                       </Col>
                     </Row>
-                  </Grid>
+
               </div>
           </div>
       );

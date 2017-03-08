@@ -1,7 +1,6 @@
 import React from 'react';
 import './header.css';
 import { ButtonGroup, Button, } from 'react-bootstrap';
-import { Search } from './search.js'
 
 class Navbar extends React.Component  {
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import './header.css';
-import { FormGroup, FormControl, Button, Grid, Row, Col } from 'react-bootstrap';
+import { FormGroup, FormControl, Button, Row, Col } from 'react-bootstrap';
 
 class Search extends React.Component  {
 
@@ -8,7 +8,7 @@ class Search extends React.Component  {
         return(
 
             <div className="search">
-              <Grid>
+
                 <Row className="show-grid">
                   <Col xs={6} md={4}>
                     <FormGroup>
@@ -19,7 +19,7 @@ class Search extends React.Component  {
                     <Button bsStyle="default">Submit</Button>
                   </Col>
                 </Row>
-              </Grid>
+
             </div>
         );
     }
