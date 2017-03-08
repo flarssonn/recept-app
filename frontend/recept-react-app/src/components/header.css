@@ -21,6 +21,10 @@
     color: white;
     margin: 0px;
     padding: 10px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 
 .search {
