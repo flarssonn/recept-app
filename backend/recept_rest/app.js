@@ -12,9 +12,9 @@ var recipes = require('./routes/recipes');
 var app = express();
 
 // CORS enable (if request from other domains)
-app.use('/*', function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
+app.all('/*', function(req, res, next) {
     res.header("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE");
+    res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
     next();
 });
@@ -52,6 +52,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
 
 module.exports = app;
