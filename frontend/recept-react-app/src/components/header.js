@@ -8,6 +8,7 @@ class Header extends React.Component  {
     render() {
         return(
           <div>
+
             <div className="header">
               <Row>
                 <Col md={2}></Col>
@@ -34,6 +35,7 @@ class Header extends React.Component  {
 
               </Row>
             </div>
+
           </div>
       );
 
