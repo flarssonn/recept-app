@@ -6,3 +6,4 @@
 * Sequelize
 * MySQL
 * Server side MVC
+test
