@@ -1,8 +1,10 @@
 import React from 'react';
 import './main.css';
-import {Row, Col, FormGroup, FormControl, ControlLabel, HelpBlock, Form, Button } from 'react-bootstrap';
+import { Button, FormGroup, FormControl, ControlLabel, HelpBlock, Row, Col, Form } from 'react-bootstrap';
+//import { browserHistory } from 'react-router';
 
-class Registration extends React.Component {
+
+class Login extends React.Component  {
 
   render() {
     function FieldGroup({ id, label, help, ...props }) {
@@ -24,7 +26,7 @@ class Registration extends React.Component {
       <div className="Registration">
         <Row>
           <Col md={4}></Col>
-          <Col md={4}><h1>Sign Up</h1></Col>
+          <Col md={4}><h1>Log in</h1></Col>
           <Col md={4}></Col>
         </Row>
         <Row>
@@ -49,13 +51,13 @@ class Registration extends React.Component {
         </Row>
         <Row>
           <Col md={4}></Col>
-          <Col md={4}><Button bsStyle="success">Create Account</Button></Col>
+          <Col md={2}><Button bsStyle="success">Log in</Button></Col>
+          <Col md={2}><Button bsStyle="danger">Forgotten Password</Button></Col>
           <Col md={4}></Col>
         </Row>
       </div>
     );
   }
-
 }
 
-export {Registration};
+export {Login};

@@ -4,8 +4,8 @@ import {Header} from './components/header.js';
 import {Footer} from './components/footer.js';
 import { Router, Route, browserHistory } from 'react-router';
 import {FirstPage} from './components/firstpage.js';
-import {Test1} from './components/test1.js';
 import {Registration} from './components/registration.js';
+import {Login} from './components/login.js';
 
 class App extends Component {
 
@@ -15,7 +15,7 @@ class App extends Component {
                 <Header />
                   <Router history={browserHistory}>
                     <Route path="/" component={FirstPage}/>
-                    <Route path="/walla" component={Test1}/>
+                    <Route path="/login" component={Login}/>
                     <Route path="/registration" component={Registration}/>
                   </Router>
                 <Footer />

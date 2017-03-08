@@ -24,7 +24,7 @@ class FirstPage extends React.Component  {
 
   handleClick(e){
     //e.preventDefault();
-    const path = `/walla`;
+    const path = '/registration';
     browserHistory.push(path);
   }
 
@@ -34,7 +34,7 @@ class FirstPage extends React.Component  {
 
     return(
       <div>
-        <Button onClick={this.handleClick} > Next Page </Button>
+        <Button onClick={this.handleClick} > Register </Button>
       </div>
     );
 

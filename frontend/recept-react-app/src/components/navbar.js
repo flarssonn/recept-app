@@ -6,7 +6,7 @@ import { browserHistory } from 'react-router';
 class Navbar extends React.Component  {
 
     handleClick(e) {
-      const path = `/walla`
+      const path = '/login';
       browserHistory.push(path);
     }
 
@@ -16,8 +16,8 @@ class Navbar extends React.Component  {
             <div className="navbar">
                 <ButtonGroup >
                   <Button bsStyle="success" onClick={this.handleClick}>Profile</Button>
-                  <Button bsStyle="success">Info</Button>
                   <Button bsStyle="success">Settings</Button>
+                  <Button bsStyle="primary">Create Account</Button>
                 </ButtonGroup>
               </div>
         );

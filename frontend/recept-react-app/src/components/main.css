@@ -7,6 +7,16 @@
     cursor: pointer;
 }
 
+.super-header:hover{
+    font-size: 50pt;
+    padding: 0px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    text-align: center;
+    cursor: pointer;
+    color: #5bc65e;
+}
+
 .header {
   color: white;
   background: url('./veg.jpg');

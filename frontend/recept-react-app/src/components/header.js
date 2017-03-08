@@ -17,9 +17,9 @@ class Header extends React.Component  {
 
             <div className="header">
               <Row>
-                <Col md={2}></Col>
+                <Col md={1}></Col>
 
-                <Col xs={12} md={8}>
+                <Col xs={12} md={10}>
                   <Row className="show-grid">
 
                     <Col xs={12} md={3}>
@@ -39,7 +39,7 @@ class Header extends React.Component  {
                   </Row>
                 </Col>
 
-                <Col md={2}></Col>
+                <Col md={1}></Col>
 
               </Row>
             </div>
