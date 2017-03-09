@@ -1,9 +1,10 @@
 import React from 'react';
 import './main.css';
 import $ from 'jquery';
-import { Row, Col, Button } from 'react-bootstrap';
+import { Row, Col, Button, Image } from 'react-bootstrap';
 import { browserHistory } from 'react-router';
-
+import { ThumbNail } from './thumbnail.js';
+import pie from './veg.jpg';
 
 class FirstPage extends React.Component  {
 
@@ -33,23 +34,34 @@ class FirstPage extends React.Component  {
   render() {
 
     return(
-      <div>
-        <Row className="show-grid">
-          <Col sm={6} md={6}>Pic</Col>
-          <Col sm={6} md={6}>Pic</Col>
+      <div className="fpcontainer">
+        <Row>
+          <Col sm={6} md={3}>
+            <ThumbNail />
+          </Col>
+          <Col sm={6} md={3}>
+            <ThumbNail />
+          </Col>
+          <Col sm={6} md={3}>
+            <ThumbNail />
+          </Col>
+          <Col sm={6} md={3}>
+            <ThumbNail />
+          </Col>
         </Row>
         <Row>
           <Col sm={6} md={3}>
+            <ThumbNail />
           </Col>
-          <Col sm={6} md={3}>Thumbnail</Col>
-          <Col sm={6} md={3}>Thumbnail</Col>
-          <Col sm={6} md={3}>Thumbnail</Col>
-        </Row>
-        <Row>
-          <Col sm={6} md={3}>Thumbnail</Col>
-          <Col sm={6} md={3}>Thumbnail</Col>
-          <Col sm={6} md={3}>Thumbnail</Col>
-          <Col sm={6} md={3}>Thumbnail</Col>
+          <Col sm={6} md={3}>
+            <ThumbNail />
+          </Col>
+          <Col sm={6} md={3}>
+            <ThumbNail />
+          </Col>
+          <Col sm={6} md={3}>
+            <ThumbNail />
+          </Col>
         </Row>
         <Button onClick={this.handleClick} > Register </Button>
       </div>
