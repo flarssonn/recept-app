@@ -1,7 +1,7 @@
 import React from 'react';
 import './main.css';
 import $ from 'jquery';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Button } from 'react-bootstrap';
 import { browserHistory } from 'react-router';
 
 
@@ -34,7 +34,6 @@ class FirstPage extends React.Component  {
 
     return(
       <div>
-<<<<<<< HEAD
         <Row className="show-grid">
           <Col sm={6} md={6}>Pic</Col>
           <Col sm={6} md={6}>Pic</Col>
@@ -52,9 +51,7 @@ class FirstPage extends React.Component  {
           <Col sm={6} md={3}>Thumbnail</Col>
           <Col sm={6} md={3}>Thumbnail</Col>
         </Row>
-=======
         <Button onClick={this.handleClick} > Register </Button>
->>>>>>> da2ef05e81d15dac5c10c0ebc1be463626d64efe
       </div>
     );
 
