@@ -1,0 +1,64 @@
+.super-header{
+    font-size: 50pt;
+    padding: 0px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.super-header:hover{
+    font-size: 50pt;
+    padding: 0px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    text-align: center;
+    cursor: pointer;
+    color: #5bc65e;
+}
+
+.header {
+  color: white;
+  background: url('./veg.jpg');
+  margin: 0px;
+  padding: 0px;
+}
+
+.footer{
+    text-align: center;
+    font-size: 13pt;
+    background-color: black;
+    color: white;
+    margin: 0px;
+    padding: 10px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.search {
+    margin-top: 50px;
+}
+
+.navbar {
+    margin-top: 50px;
+}
+
+.Registration {
+  text-align: center;
+
+}
+
+.Registration h1 {
+  font-size: 30pt;
+  padding-top: 50px;
+}
+
+.Registration Form {
+  padding-top: 20px;
+}
+
+.Registration Button {
+  margin-bottom: 50px;
+}

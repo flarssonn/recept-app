@@ -1,12 +1,17 @@
 import React from 'react';
-import './header.css';
+import './main.css';
 import { ButtonGroup, Button, } from 'react-bootstrap';
 import { browserHistory } from 'react-router';
 
 class Navbar extends React.Component  {
 
-    handleClick(e) {
-      const path = `/walla`
+    handleProfileClick(e) {
+      const path = '/login';
+      browserHistory.push(path);
+    }
+
+    handleRegistrationClick(e) {
+      const path = '/registration';
       browserHistory.push(path);
     }
 
@@ -15,9 +20,9 @@ class Navbar extends React.Component  {
 
             <div className="navbar">
                 <ButtonGroup >
-                  <Button bsStyle="success" onClick={this.handleClick}>Profile</Button>
-                  <Button bsStyle="success">Info</Button>
-                  <Button bsStyle="success">Settings</Button>
+                  <Button bsStyle="success" onClick={this.handleProfileClick}>Profile</Button>
+                  <Button bsStyle="success">Browse</Button>
+                  <Button bsStyle="primary" onClick={this.handleRegistrationClick}>Create Account</Button>
                 </ButtonGroup>
               </div>
         );

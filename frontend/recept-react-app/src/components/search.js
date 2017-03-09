@@ -1,5 +1,5 @@
 import React from 'react';
-import './header.css';
+import './main.css';
 import { FormGroup, FormControl, Button, Row, Col } from 'react-bootstrap';
 
 class Search extends React.Component  {
