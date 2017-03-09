@@ -1,8 +1,35 @@
 import React from 'react';
 import './main.css';
 import {Row, Col, FormGroup, FormControl, ControlLabel, HelpBlock, Form, Button } from 'react-bootstrap';
+import $ from 'jquery';
+import { browserHistory } from 'react-router';
 
 class Registration extends React.Component {
+
+  submit(e) {
+    var username = $("#formControlsEmail").val();
+    var password = $("#formControlsPassword").val();
+    var data = {
+      username: username,
+      password: password,
+      email:    username
+    };
+    $.ajax({
+        url: 'http://localhost:3001/users/create',
+        dataType: 'json',
+        cache: false,
+        type: 'POST',
+        data: data,
+        success: function(data) {
+            console.log('Success');
+        },
+        error: function(err) {
+            alert('Something went wrong: ' + err);
+        }
+    });
+    const path = '/';
+    browserHistory.push(path);
+  }
 
   render() {
     function FieldGroup({ id, label, help, ...props }) {
@@ -30,7 +57,7 @@ class Registration extends React.Component {
         <Row>
           <Col md={4}></Col>
           <Col md={4}>
-            <Form horizontal>
+            <Form horizontal onSubmit={this.submit}>
               <FieldGroup
                 id="formControlsEmail"
                 type="email"
@@ -43,13 +70,14 @@ class Registration extends React.Component {
                 type="password"
                 placeholder="Enter password"
               />
+            <Button bsStyle="success" type="submit" onClick={this.createUser} >Create Account</Button>
             </Form>
           </Col>
           <Col md={4}></Col>
         </Row>
         <Row>
           <Col md={4}></Col>
-          <Col md={4}><Button bsStyle="success">Create Account</Button></Col>
+          <Col md={4}></Col>
           <Col md={4}></Col>
         </Row>
       </div>
