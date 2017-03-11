@@ -4,7 +4,10 @@ import { ButtonGroup, Button, } from 'react-bootstrap';
 import { browserHistory } from 'react-router';
 
 class Navbar extends React.Component  {
-
+    constructor(props){
+      super(props);
+      this.state = {isLoggedIn: this.props.logedIn}
+    }
     handleProfileClick(e) {
       const path = '/login';
       browserHistory.push(path);
@@ -16,16 +19,35 @@ class Navbar extends React.Component  {
     }
 
     render() {
-        return(
+        const isLogedIn = this.state.loggedIn;
+        if( isLogedIn ){
+
+          return(
 
             <div className="navbar">
                 <ButtonGroup >
                   <Button bsStyle="success" onClick={this.handleProfileClick}>Profile</Button>
                   <Button bsStyle="success">Browse</Button>
-                  <Button bsStyle="primary" onClick={this.handleRegistrationClick}>Create Account</Button>
+                  <Button bsStyle="success" onClick={this.handleRegistrationClick}>Create Account</Button>
                 </ButtonGroup>
+                <h1>asdasd</h1>
               </div>
-        );
+
+          );
+
+        }else{
+
+          return(
+
+              <div className="navbar">
+                  <ButtonGroup >
+                    <Button bsStyle="success" onClick={this.handleProfileClick}>Profile</Button>
+                    <Button bsStyle="success">Browse</Button>
+                    <Button bsStyle="primary" onClick={this.handleRegistrationClick}>Create Account</Button>
+                  </ButtonGroup>
+                </div>
+          );
+        }
     }
 
 }

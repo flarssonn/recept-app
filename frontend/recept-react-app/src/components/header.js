@@ -6,6 +6,8 @@ import { Row, Col } from 'react-bootstrap';
 import {browserHistory} from 'react-router';
 
 class Header extends React.Component  {
+
+
   handleClick(e){
     //e.preventDefault();
     const path = `/`;
@@ -33,7 +35,7 @@ class Header extends React.Component  {
                     </Col>
 
                     <Col xs={12} md={3}>
-                      <Navbar />
+                      <Navbar loggedIn={this.props.loggedIn} />
                     </Col>
 
                   </Row>
