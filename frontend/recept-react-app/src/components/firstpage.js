@@ -1,7 +1,7 @@
 import React from 'react';
 import './main.css';
 import $ from 'jquery';
-import { Row, Col, Button, Image } from 'react-bootstrap';
+import { Row, Col, Button, Image, PageHeader } from 'react-bootstrap';
 import { browserHistory } from 'react-router';
 import { ThumbNail } from './thumbnail.js';
 import pie from './veg.jpg';
@@ -35,33 +35,45 @@ class FirstPage extends React.Component  {
 
     return(
       <div className="fpcontainer">
+      <Row>
+        <Col xs={6} md={2}></Col>
+          <Col xs={6} md={8}>
+            <PageHeader>How pie to see you! <small>We have all the recipies for your needs!</small></PageHeader>
+          </Col>
+        <Col xs={6} md={2}></Col>
+      </Row>
         <Row>
-          <Col sm={6} md={3}>
-            <ThumbNail />
-          </Col>
-          <Col sm={6} md={3}>
-            <ThumbNail />
-          </Col>
-          <Col sm={6} md={3}>
-            <ThumbNail />
-          </Col>
-          <Col sm={6} md={3}>
-            <ThumbNail />
-          </Col>
-        </Row>
-        <Row>
-          <Col sm={6} md={3}>
-            <ThumbNail />
-          </Col>
-          <Col sm={6} md={3}>
-            <ThumbNail />
-          </Col>
-          <Col sm={6} md={3}>
-            <ThumbNail />
-          </Col>
-          <Col sm={6} md={3}>
-            <ThumbNail />
-          </Col>
+        <Col xs={6} md={2}></Col>
+          <Col xs={6} md={8}>
+          <Row>
+            <Col sm={6} md={3}>
+              <ThumbNail />
+            </Col>
+            <Col sm={6} md={3}>
+              <ThumbNail />
+            </Col>
+            <Col sm={6} md={3}>
+              <ThumbNail />
+            </Col>
+            <Col sm={6} md={3}>
+              <ThumbNail />
+            </Col>
+          </Row>
+          <Row>
+            <Col sm={6} md={3}>
+              <ThumbNail />
+            </Col>
+            <Col sm={6} md={3}>
+              <ThumbNail />
+            </Col>
+            <Col sm={6} md={3}>
+              <ThumbNail />
+            </Col>
+            <Col sm={6} md={3}>
+              <ThumbNail />
+            </Col>
+          </Row></Col>
+          <Col xs={6} md={2}></Col>
         </Row>
         <Button onClick={this.handleClick} > Register </Button>
       </div>

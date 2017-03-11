@@ -8,6 +8,7 @@ class ProfilePage extends React.Component {
 
   //Byt ut ListGroupItem mot en custom recipieItem
 
+  //Implementera ett sätt att se olika listor, typ alla sina recept, sina favoriter
   render () {
 
 
