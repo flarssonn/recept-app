@@ -4,6 +4,7 @@ import {Header} from './components/header.js';
 import {Footer} from './components/footer.js';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import {FirstPage} from './components/firstpage.js';
+import {ProfilePage} from './components/profilepage.js';
 import {Registration} from './components/registration.js';
 import {Login} from './components/login.js';
 import {Button} from 'react-bootstrap';
@@ -48,7 +49,7 @@ class App extends Component {
 
           <Router history={browserHistory}>
             <Route path="/" component={Container} >
-              <IndexRoute component={FirstPage}/>
+              <IndexRoute component={ProfilePage}/>
               <Route path="/login" component={(props, state, params) => <Login text="My Test App" {...props} />} />
               <Route path="/registration" component={Registration}/>
             </Route>
