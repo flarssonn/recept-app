@@ -6,9 +6,6 @@ import { Button, FormGroup, FormControl, ControlLabel, HelpBlock, Row, Col, Form
 
 class Login extends React.Component  {
 
-  constructor(props){
-    super(props);
-  }
 
   handleClick() {
     /*Den här ska i prop ha funktionen från app.js så att det är där den säger att man blir inloggad

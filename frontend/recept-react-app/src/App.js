@@ -9,9 +9,10 @@ import {Registration} from './components/registration.js';
 import {Login} from './components/login.js';
 import {Button} from 'react-bootstrap';
 
+
 const Container = (props) => <div>
     {props.children}
-  <Footer />
+
 </div>
 
 class App extends Component {
@@ -28,12 +29,11 @@ class App extends Component {
 
     const isLoggedIn = this.state.loggedIn;
     this.setState({loggedIn: !isLoggedIn});
-    console.log(this.state.loggedIn);
+    console.log();
 
   }
 
   render() {
-    const isLoggedIn = this.state.loggedIn;
 
     let header = null;
 
@@ -45,17 +45,20 @@ class App extends Component {
 
     return (
       <div>
-        {header}
 
+        {header}
+        <Button onClick={this.handleLogIn}>asd</Button>
           <Router history={browserHistory}>
             <Route path="/" component={Container} >
-              <IndexRoute component={ProfilePage}/>
+              <IndexRoute component={FirstPage}/>
+              <Route path="/profile" component={ProfilePage}/>
               <Route path="/login" component={(props, state, params) => <Login text="My Test App" {...props} />} />
               <Route path="/registration" component={Registration}/>
             </Route>
           </Router>
 
-          <Button onClick={this.handleLogIn}>kjahsdkjahsdf</Button>
+          <Footer />
+
 
       </div>
     );

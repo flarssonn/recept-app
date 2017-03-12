@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { addRecipie } from '../actions'
-import { Button, FormGroup, FormControl, ControlLabel, HelpBlock, Row, Col, Form } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 let AddRecipie = ({ dispatch }) => {
   let input

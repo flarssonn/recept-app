@@ -1,14 +1,9 @@
 import React from 'react';
 import './main.css';
-import $ from 'jquery';
-import { Row, Col, Button, Image, PageHeader } from 'react-bootstrap';
-import { browserHistory } from 'react-router';
+import { Row, Col, Button, PageHeader } from 'react-bootstrap';
 import { ThumbNail } from './thumbnail.js';
-import pie from './veg.jpg';
-import { connect } from 'react-redux'
 
-
-let FirstPage = ({dispatch}) =>  {
+class FirstPage extends React.Component{
 
   /*componentDidMount() {
       $.ajax({
@@ -35,7 +30,7 @@ let FirstPage = ({dispatch}) =>  {
 
 
 
-
+  render(){
     return(
       <div className="fpcontainer">
       <Row>
@@ -82,9 +77,8 @@ let FirstPage = ({dispatch}) =>  {
       </div>
     );
 
-  
+  }
 
 }
-FirstPage = connect()(FirstPage);
 
-export default FirstPage;
+export {FirstPage};
