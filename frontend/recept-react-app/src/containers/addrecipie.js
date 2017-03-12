@@ -20,7 +20,7 @@ let AddRecipie = ({ dispatch }) => {
           input = node
         }} />
         <Button type="submit">
-          Add Todo
+          Add a Recipie
         </Button>
       </form>
     </div>
