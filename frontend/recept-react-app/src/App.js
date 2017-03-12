@@ -49,7 +49,7 @@ class App extends Component {
 
           <Router history={browserHistory}>
             <Route path="/" component={Container} >
-              <IndexRoute component={FirstPage}/>
+              <IndexRoute component={ProfilePage}/>
               <Route path="/login" component={(props, state, params) => <Login text="My Test App" {...props} />} />
               <Route path="/registration" component={Registration}/>
             </Route>

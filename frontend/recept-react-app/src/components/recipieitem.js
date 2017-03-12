@@ -2,26 +2,19 @@ import React, { PropTypes } from 'react';
 import { ListGroupItem } from 'react-bootstrap';
 import './main.css';
 
-class RecipieItem extends React.Component {
 
-  render () {
+const RecipieItem = ({ onClick, fav, text }) => (
+  <ListGroupItem
+    onClick={onClick}
+  >
+    {text}
+  </ListGroupItem>
+)
 
-    RecipieItem.PropTypes = {
-      onClick: PropTypes.func.isRequired,
-      text: PropTypes.string.isRequired,
-      favourite: PropTypes.boolean.isRequired
-    }
-
-    return (
-
-      <ListGroupItem
-        onclick={onClick}
-      >
-        {text}
-      </ListGroupItem>
-    );
-
-  }
-
-
+RecipieItem.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  fav: PropTypes.bool.isRequired,
+  text: PropTypes.string.isRequired
 }
+
+export default RecipieItem
