@@ -1,9 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { addRecipie } from '../actions'
-import { Button, FormGroup, FormControl, ControlLabel, HelpBlock, Col, Row } from 'react-bootstrap';
+import { Button, FormGroup, FormControl, ControlLabel, HelpBlock, Col } from 'react-bootstrap';
 import $ from 'jquery';
-import {browserHistory} from 'react-router';
 
 function add(recipeTitle, recipeIngredients, recipeDescription, recipeTags){
   var addUrl = 'http://localhost:3001/recipes/add/b@a'
@@ -27,7 +26,7 @@ function add(recipeTitle, recipeIngredients, recipeDescription, recipeTags){
           alert('Something went wrong: ' + err);
       }
   });
-  browserHistory.push('/profile');
+
 }
 
 function FieldGroup({ id, label, help, ...props }) {
@@ -46,8 +45,8 @@ function FieldGroup({ id, label, help, ...props }) {
 }
 
 let AddRecipie = ({ dispatch }) => {
-  let input
 
+  //let input
   return (
     <div>
       <form onSubmit={e => {
@@ -56,45 +55,48 @@ let AddRecipie = ({ dispatch }) => {
           return
         }
         add($("#formControlsTitle").val(), $("#formControlsIngredients").val(), $("#formControlsDescription").val(), $("#formControlsTags").val() )
-        dispatch(addRecipie(input.value))
-        input.value = ''
+        dispatch(addRecipie($("#formControlsTitle").val()))
+        $("#formControlsTitle").val("");
+        $("#formControlsIngredients").val("");
+        $("#formControlsDescription").val("");
+        $("#formControlsTags").val("");
       }}>
 
-      <FieldGroup
-        id="formControlsTitle"
-        type="text"
-        label="Title"
-        placeholder="Enter recipe title"
-      />
-      <FieldGroup
-        id="formControlsIngredients"
-        type="text"
-        label="Ingredients"
-        placeholder="Ingredient 1, Ingredient 2, Ingredient 3 , ..."
-      />
-      <FieldGroup
-        id="formControlsDescription"
-        type="text"
-        label="Description"
-        placeholder="Put oven on 180 degrees ..."
-      />
-      <FieldGroup
-        id="formControlsTags"
-        type="text"
-        label="Tags"
-        placeholder="Quick,Easy,Breakfast"
-      />
+        <FieldGroup
+          id="formControlsTitle"
+          type="text"
+          label="Title"
+          placeholder="Enter recipe title"
+        />
+        <FieldGroup
+          id="formControlsIngredients"
+          type="text"
+          label="Ingredients"
+          placeholder="Ingredient 1, Ingredient 2, Ingredient 3 , ..."
+        />
+        <FieldGroup
+          id="formControlsDescription"
+          type="text"
+          label="Description"
+          placeholder="Put oven on 180 degrees ..."
+        />
+        <FieldGroup
+          id="formControlsTags"
+          type="text"
+          label="Tags"
+          placeholder="Quick,Easy,Breakfast"
+        />
 
-    <Col sm={12}>
-      <Button type="submit">
-        Add a Recipie
-      </Button>
-    </Col>
+      <Col sm={12}>
+        <Button type="submit">
+          Add a Recipie
+        </Button>
+      </Col>
 
-    </form>
+      </form>
     </div>
-  )
-}
+    )
+  }
 AddRecipie = connect()(AddRecipie)
 
 export default AddRecipie

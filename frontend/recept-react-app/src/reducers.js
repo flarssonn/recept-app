@@ -8,14 +8,16 @@ function user(state = [], action) {
       return [
         ...state,
         {
-          isLoggedIn: true
+          isLoggedIn: true,
+          usr: user.name
         }
       ]
     case DO_LOGOUT:
     return [
       ...state,
       {
-        isLoggedIn: false
+        isLoggedIn: false,
+        usr: null
       }
     ]
     default:
