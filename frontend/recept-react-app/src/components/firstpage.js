@@ -5,10 +5,12 @@ import { Row, Col, Button, Image } from 'react-bootstrap';
 import { browserHistory } from 'react-router';
 import { ThumbNail } from './thumbnail.js';
 import pie from './veg.jpg';
+import { connect } from 'react-redux'
 
-class FirstPage extends React.Component  {
 
-  componentDidMount() {
+let FirstPage = ({dispatch}) =>  {
+
+  /*componentDidMount() {
       $.ajax({
           url: 'http://localhost:3001/recipes',
           dataType: 'json',
@@ -25,13 +27,14 @@ class FirstPage extends React.Component  {
 
   handleClick(e){
     //e.preventDefault();
-    const path = '/registration';
-    browserHistory.push(path);
-  }
+    //const path = '/registration';
+    //browserHistory.push(path);
+    //console.log(store.getState());
+  }*/
 
 
 
-  render() {
+
 
     return(
       <div className="fpcontainer">
@@ -67,8 +70,9 @@ class FirstPage extends React.Component  {
       </div>
     );
 
-  }
+  
 
 }
+FirstPage = connect()(FirstPage);
 
-export {FirstPage};
+export default FirstPage;
