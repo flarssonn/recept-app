@@ -7,12 +7,13 @@ import { browserHistory } from 'react-router';
 class Registration extends React.Component {
 
   submit(e) {
-    var username = $("#formControlsEmail").val();
+    var email = $("#formControlsEmail").val();
     var password = $("#formControlsPassword").val();
+    var username = $("#formControlsUsername").val();
     var data = {
       username: username,
       password: password,
-      email:    username
+      email:    email
     };
     $.ajax({
         url: 'http://localhost:3001/users/create',
@@ -58,6 +59,12 @@ class Registration extends React.Component {
           <Col md={4}></Col>
           <Col md={4}>
             <Form horizontal onSubmit={this.submit}>
+              <FieldGroup
+                id="formControlsUsername"
+                label="Username"
+                type="text"
+                placeholder="Enter username"
+              />
               <FieldGroup
                 id="formControlsEmail"
                 type="email"
