@@ -17,37 +17,17 @@ const Container = (props) => <div>
 
 class App extends Component {
 
-  constructor(props){
-    super(props);
-    this.state = {
-      loggedIn: false
-    }
-    this.handleLogIn = this.handleLogIn.bind(this);
-  }
-
-  handleLogIn() {
-
-    const isLoggedIn = this.state.loggedIn;
-    this.setState({loggedIn: !isLoggedIn});
-    console.log();
-
-  }
 
   render() {
 
     let header = null;
-
-    if(this.state.loggedIn){
-      header = <Header loggedIn={true}/>
-    }else{
-      header = <Header loggedIn={false}/>
-    }
+    header = <Header loggedIn={true}/>
 
     return (
       <div>
 
         {header}
-        <Button onClick={this.handleLogIn}>asd</Button>
+
           <Router history={browserHistory}>
             <Route path="/" component={Container} >
               <IndexRoute component={FirstPage}/>

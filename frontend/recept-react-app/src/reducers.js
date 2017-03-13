@@ -1,25 +1,24 @@
 import { combineReducers } from 'redux'
-import { DO_LOGIN, DO_LOGOUT, ADD_RECIPIE, TOGGLE_RECIPIE, SET_VISIBILITY_FILTER, VisibilityFilters } from './actions'
+import { IS_LOGGEDIN, DO_LOGIN, DO_LOGOUT, ADD_RECIPIE, TOGGLE_RECIPIE, SET_VISIBILITY_FILTER, VisibilityFilters } from './actions'
 const { SHOW_ALL } = VisibilityFilters
 
 function user(state = [], action) {
   switch (action.type) {
     case DO_LOGIN:
+      return Object.assign({}, user, {
+        status: true
+      })
+    case DO_LOGOUT:
+      return Object.assign({}, user, {
+        status: false
+      })
+    case IS_LOGGEDIN:
       return [
-        ...state,
+        ...state.status,
         {
-          isLoggedIn: true,
-          usr: user.name
+          status: action.status
         }
       ]
-    case DO_LOGOUT:
-    return [
-      ...state,
-      {
-        isLoggedIn: false,
-        usr: null
-      }
-    ]
     default:
       return state
   }

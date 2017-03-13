@@ -56,10 +56,12 @@ let AddRecipie = ({ dispatch }) => {
         }
         add($("#formControlsTitle").val(), $("#formControlsIngredients").val(), $("#formControlsDescription").val(), $("#formControlsTags").val() )
         dispatch(addRecipie($("#formControlsTitle").val()))
+
         $("#formControlsTitle").val("");
         $("#formControlsIngredients").val("");
         $("#formControlsDescription").val("");
         $("#formControlsTags").val("");
+        
       }}>
 
         <FieldGroup

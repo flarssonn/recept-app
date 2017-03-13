@@ -4,6 +4,7 @@
 
 export const DO_LOGIN = 'DO_LOGIN'
 export const DO_LOGOUT = 'DO_LOGOUT'
+export const IS_LOGGEDIN = 'IS_LOGGEDIN'
 export const ADD_RECIPIE = 'ADD_RECIPIE'
 export const TOGGLE_RECIPIE = 'TOGGLE_RECIPIE'
 export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
@@ -22,11 +23,15 @@ export const VisibilityFilters = {
  */
 
 export function doLogin(user) {
-  return { type: DO_LOGIN, user }
+  return { type: DO_LOGIN, status }
 }
 
 export function doLogout(user) {
-  return { type: DO_LOGOUT, user }
+  return { type: DO_LOGOUT, status }
+}
+
+export function isLoggedIn(user) {
+  return { type: IS_LOGGEDIN, status }
 }
 
 export function addRecipie(text) {
