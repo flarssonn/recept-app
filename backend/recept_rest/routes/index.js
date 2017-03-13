@@ -32,7 +32,7 @@ router.get('/init', function(req, res, next) {
 
 router.get('/ass', function(req, res, next) {
   models.User.findOne({
-    where: {username: "Bob"}
+    where: {username: "the@bob.com"}
   }).then(function(bob) {
     models.Recipe.findById(1).then(function(paj) {
       bob.addRecipe(paj);
