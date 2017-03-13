@@ -22,7 +22,6 @@ class NewRecipe extends React.Component {
         <Row>
           <Col xs={6} md={2}></Col>
           <Col xs={6} md={8}>
-            //Component where you can add a new recipe
             <AddRecipie />
           </Col>
           <Col xs={6} md={2}></Col>

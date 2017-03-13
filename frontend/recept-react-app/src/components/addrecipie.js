@@ -57,7 +57,6 @@ class AddRecipie extends React.Component {
     <div>
       <form onSubmit={e => {
         e.preventDefault()
-        //If no title then don't create a new recipe
         if (!$("#formControlsTitle").val().trim()) {
           return
         }
@@ -68,7 +67,6 @@ class AddRecipie extends React.Component {
         $("#formControlsDescription").val("");
         $("#formControlsTags").val("");
 
-        //Redirect to the profile page
         browserHistory.push('/profile');
       }}>
 

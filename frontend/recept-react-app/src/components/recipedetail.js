@@ -22,7 +22,6 @@ const RecipeDetail = React.createClass({
     return (
       <div>
 
-        //The actual box showing recipe info
         <Thumbnail>
           <h3>{this.props.title}</h3>
           <p>Ingredients: {this.props.ingredients}</p>
@@ -30,7 +29,6 @@ const RecipeDetail = React.createClass({
           <Button bsStyle="default" bsSize="small" onClick={this.open}>See More!</Button>
         </Thumbnail>
 
-        //MOdal that shows on pressing See more
         <Modal show={this.state.showModal} onHide={this.close}>
           <Modal.Header closeButton>
             <Modal.Title>{this.props.title}</Modal.Title>

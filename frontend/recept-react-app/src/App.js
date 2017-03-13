@@ -5,7 +5,6 @@ import {FirstPage} from './components/firstpage.js';
 import {ProfilePage} from './components/profilepage.js';
 import {Registration} from './components/registration.js';
 import {Login} from './components/login.js';
-import cookie from 'react-cookie';
 import {NewRecipe} from './components/newrecipe.js';
 import {SearchComponent} from './components/searchcomponent.js';
 

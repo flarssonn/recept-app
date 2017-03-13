@@ -45,8 +45,7 @@ class SearchComponent extends React.Component{
     var recipes = this.state.recipes;
     var list = [];
     var length = this.state.recipes.length;
-    var id;
-
+    
     for(var i = 0; i < length; i++){
       list.push(<RecipeDetail title={recipes[i].title} ingredients={recipes[i].ingredients} description={recipes[i].description} key={recipes[i].id} />);
     }

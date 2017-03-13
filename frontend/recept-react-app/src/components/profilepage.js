@@ -20,8 +20,7 @@ class ProfilePage extends React.Component {
         </Row>
         <Row>
           <Col xs={6} md={2}></Col>
-          <Col xs={6} md={8}>
-            //Component showing all recipes created by the user
+          <Col xs={6} md={8}>            
             <UserRecipe />
           </Col>
           <Col xs={6} md={2}></Col>
