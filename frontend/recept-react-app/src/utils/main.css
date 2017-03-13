@@ -35,7 +35,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    
+
 }
 
 .search {
@@ -62,26 +62,4 @@
 
 .Registration Button {
   margin-bottom: 50px;
-}
-
-.fpcontainer img {
-  max-width: 100%
-}
-.fpcontainer {
-  height: 100%;
-}
-
-.slider {
-  position: relative;
-  display: block;
-  width: 100%;
-  white-space: nowrap;
-  overflow-x: scroll;
-  overflow-y: hidden;
-}
-
-.slider-slide {
-  width: 600px;
-  height: 336px;
-
 }
