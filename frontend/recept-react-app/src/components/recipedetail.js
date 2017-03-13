@@ -1,6 +1,6 @@
 import React from 'react';
 import './main.css';
-import { Thumbnail, Button, Modal, Popover, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Thumbnail, Button, Modal } from 'react-bootstrap';
 
 
 const RecipeDetail = React.createClass({
@@ -17,16 +17,7 @@ const RecipeDetail = React.createClass({
   },
 
   render() {
-    const popover = (
-      <Popover id="modal-popover" title="popover">
-        very popover. such engagement
-      </Popover>
-    );
-    const tooltip = (
-      <Tooltip id="modal-tooltip">
-        wow.
-      </Tooltip>
-    );
+
 
     return (
       <div>
@@ -54,7 +45,7 @@ const RecipeDetail = React.createClass({
             <Button onClick={this.close}>Close</Button>
           </Modal.Footer>
         </Modal>
-        
+
       </div>
     );
   }

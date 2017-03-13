@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addRecipie } from '../actions'
 import { Button, FormGroup, FormControl, ControlLabel, HelpBlock, Col } from 'react-bootstrap';
 import $ from 'jquery';
 import {browserHistory} from 'react-router';
@@ -56,14 +55,14 @@ let AddRecipie = ({ dispatch }) => {
           return
         }
         add($("#formControlsTitle").val(), $("#formControlsIngredients").val(), $("#formControlsDescription").val(), $("#formControlsTags").val() )
-        dispatch(addRecipie($("#formControlsTitle").val()))
+        //dispatch(addRecipie($("#formControlsTitle").val()))
 
         $("#formControlsTitle").val("");
         $("#formControlsIngredients").val("");
         $("#formControlsDescription").val("");
         $("#formControlsTags").val("");
 
-        browserHistory.push('/');
+        browserHistory.push('/profile');
       }}>
 
         <FieldGroup
