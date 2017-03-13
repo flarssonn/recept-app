@@ -1,59 +1,53 @@
 import React from 'react';
 import './main.css';
-import { Row, Col, Button, PageHeader } from 'react-bootstrap';
+import { Row, Col, PageHeader } from 'react-bootstrap';
 import { ThumbNail } from './thumbnail.js';
 import $ from 'jquery';
 
 class FirstPage extends React.Component{
 
+  constructor(props){
+    super(props);
+    this.state = {recipes: []}
+
+  }
   componentDidMount() {
-      $.ajax({
-          url: 'http://localhost:3001/recipes',
-          dataType: 'json',
-          cache: false,
-          type: 'GET',
-          success: function(data) {
-              console.log(data);
-          },
-          error: function(err) {
-              console.log(err);
-          }
-      });
+    var thus = this;
+
+    $.ajax({
+        url: 'http://localhost:3001/recipes',
+        dataType: 'json',
+        cache: false,
+        type: 'GET',
+        success: function(data) {
+          thus.setState({recipes: data});
+        },
+        error: function(err) {
+            console.log(err);
+        }
+    });
   }
 
-  handleClick(e){
-    //e.preventDefault();
-    //const path = '/registration';
-    //browserHistory.push(path);
-    //console.log(store.getState());
-  }
+  getRecipes() {
+    var recipes = this.state.recipes;
+    var list = [];
+    var length = this.state.recipes.length;
 
+    for(var i = 0; i < length; i++){
+      list.push(<ThumbNail title={recipes[i].title} ingredients={recipes[i].ingredients} description={recipes[i].description} key={recipes[i].id} />);
+    }
+    return list;
+  }
 
   render(){
-
-    function Recipes() {
-      var recipes = [];
-      var recipe = "";
-      $.ajax({
-          url: 'http://localhost:3001/recipes',
-          dataType: 'json',
-          cache: false,
-          type: 'GET',
-          success: function(data) {
-            recipes = data;
-            recipe = JSON.stringify(data);
-              console.log();
-          },
-          error: function(err) {
-              console.log(err);
-          }
-      });
-
-      return (
-
-        <h1>{recipe}</h1>
-      );
+    var recipes = [];
+    //console.log(this.state.recipes);
+    if (this.state.recipes.length !== 0){
+      console.log("success");
+      recipes = this.getRecipes();
+      console.log("size: " + recipes.length);
     }
+
 
     return(
       <div className="fpcontainer">
@@ -65,39 +59,13 @@ class FirstPage extends React.Component{
         <Col xs={6} md={2}></Col>
       </Row>
         <Row>
-        <Col xs={6} md={2}></Col>
+          <Col xs={6} md={2}></Col>
           <Col xs={6} md={8}>
-            <Row>
-              <Col sm={6} md={3}>
-                <Recipes />
-              </Col>
-              <Col sm={6} md={3}>
-                <ThumbNail />
-              </Col>
-              <Col sm={6} md={3}>
-                <ThumbNail />
-              </Col>
-              <Col sm={6} md={3}>
-                <ThumbNail />
-              </Col>
-            </Row>
-            <Row>
-              <Col sm={6} md={3}>
-                <ThumbNail />
-              </Col>
-              <Col sm={6} md={3}>
-                <ThumbNail />
-              </Col>
-              <Col sm={6} md={3}>
-                <ThumbNail />
-              </Col>
-              <Col sm={6} md={3}>
-                <ThumbNail />
-              </Col>
-            </Row>
+            {recipes}
           </Col>
           <Col xs={6} md={2}></Col>
         </Row>
+
       </div>
     );
 

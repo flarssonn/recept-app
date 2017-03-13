@@ -7,7 +7,6 @@ import {FirstPage} from './components/firstpage.js';
 import {ProfilePage} from './components/profilepage.js';
 import {Registration} from './components/registration.js';
 import {Login} from './components/login.js';
-import {Button} from 'react-bootstrap';
 
 
 const Container = (props) => <div>
