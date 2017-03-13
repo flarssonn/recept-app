@@ -25,7 +25,7 @@ router.post('/add/:user', function(req, res, next) {
       description: req.body.description,
       piclink: req.body.piclink
     }).then(function(rec) {
-      
+
       // connect it to user
       var usr = req.params.user;
       models.User.findOne({
@@ -55,6 +55,16 @@ router.post('/add/:user', function(req, res, next) {
     });
 });
 
+//Find all recipes from one tag
+router.get('/:tag', function(req, res, next) {
+  models.Tag.findOne({
+    where: {tag: req.params.tag}
+  }).then(function(existingTag) {
+    existingTag.getRecipes().then(function(recs) {
+      res.json(recs);
+    });
+  });
+});
 
 //Delete a recipe
 router.post('/delete/:id', function(req, res, next) {
