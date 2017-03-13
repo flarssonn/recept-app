@@ -1,9 +1,8 @@
 import React from 'react';
 import './main.css';
 import AddRecipie from '../containers/addrecipie.js'
-import VisibleRecipieList from '../containers/visiblerecipielist.js'
-import ToggleList from './togglelist.js'
 import { PageHeader, Row, Col } from 'react-bootstrap';
+import {UserRecipe} from './userrecipe.js';
 
 class ProfilePage extends React.Component {
 
@@ -28,13 +27,6 @@ class ProfilePage extends React.Component {
         <Row>
           <Col xs={6} md={2}></Col>
           <Col xs={6} md={8}>
-            <VisibleRecipieList />
-          </Col>
-          <Col xs={6} md={2}></Col>
-        </Row>
-        <Row>
-          <Col xs={6} md={2}></Col>
-          <Col xs={6} md={8}>
             <AddRecipie />
           </Col>
           <Col xs={6} md={2}></Col>
@@ -42,7 +34,7 @@ class ProfilePage extends React.Component {
         <Row>
           <Col xs={6} md={2}></Col>
           <Col xs={6} md={8}>
-            <ToggleList />
+            <UserRecipe />
           </Col>
           <Col xs={6} md={2}></Col>
         </Row>

@@ -1,15 +1,18 @@
 import React from 'react';
 import './main.css';
-import { Thumbnail, Button } from 'react-bootstrap';
+import { Thumbnail, Button, Modal, Popover, OverlayTrigger, Tooltip } from 'react-bootstrap';
 
 class ThumbNail extends React.Component  {
-
+  onClick(e){
+    alert("YO");
+  }
     render() {
         return(
-          <Thumbnail src="" alt="242x200">
-            <h3>A pie</h3>
-            <p>Description</p>
-            <Button bsStyle="default" bsSize="small">See more!</Button>
+          <Thumbnail>
+            <h3>{this.props.title}</h3>
+            <p>Ingredients: {this.props.ingredients}</p>
+            <p>Description: {this.props.description}</p>
+            <Button bsStyle="default" bsSize="small" onClick={this.onClick}>See more!</Button>
           </Thumbnail>
         );
     }

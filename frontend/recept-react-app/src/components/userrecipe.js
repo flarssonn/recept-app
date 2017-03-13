@@ -1,14 +1,15 @@
 import React from 'react';
 import './main.css';
-import { Row, Col, PageHeader } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import { RecipeDetail } from './recipedetail.js';
 import $ from 'jquery';
 
-class FirstPage extends React.Component{
+class UserRecipe extends React.Component{
 
   constructor(props){
     super(props);
-    this.state = {recipes: []}
+    this.state = {recipes: [],
+                  users: []}
 
   }
   componentDidMount() {
@@ -26,15 +27,41 @@ class FirstPage extends React.Component{
             console.log(err);
         }
     });
+
+    $.ajax({
+        url: 'http://localhost:3001/users',
+        dataType: 'json',
+        cache: false,
+        type: 'GET',
+        success: function(data) {
+          thus.setState({users: data});
+        },
+        error: function(err) {
+            console.log(err);
+        }
+    });
+
   }
 
+  //TODO fix actual loggedin person to get their recipe
   getRecipes() {
     var recipes = this.state.recipes;
+    var users = this.state.users;
     var list = [];
     var length = this.state.recipes.length;
-
+    //console.log(users[2].id);
+    var id;
+    for(var j = 0; j < users.length; j++){
+      if(users[j].username === 'Acke@a'){
+        id = users[j].id;
+      }
+    }
+    console.log(id);
     for(var i = 0; i < length; i++){
-      list.push(<RecipeDetail title={recipes[i].title} ingredients={recipes[i].ingredients} description={recipes[i].description} key={recipes[i].id} />);
+      if(recipes[i].UserId === id){
+        list.push(<RecipeDetail title={recipes[i].title} ingredients={recipes[i].ingredients} description={recipes[i].description} key={recipes[i].id} />);
+      }
+
     }
     return list;
   }
@@ -51,13 +78,6 @@ class FirstPage extends React.Component{
 
     return(
       <div className="fpcontainer">
-      <Row>
-        <Col xs={6} md={2}></Col>
-          <Col xs={6} md={8}>
-            <PageHeader>How pie to see you! <small>We have all the recipies for your needs!</small></PageHeader>
-          </Col>
-        <Col xs={6} md={2}></Col>
-      </Row>
         <Row>
           <Col xs={6} md={2}></Col>
           <Col xs={6} md={8}>
@@ -73,4 +93,4 @@ class FirstPage extends React.Component{
 
 }
 
-export {FirstPage};
+export {UserRecipe};
