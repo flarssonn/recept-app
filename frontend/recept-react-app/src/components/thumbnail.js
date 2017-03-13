@@ -1,5 +1,5 @@
 import React from 'react';
-import './main.css';
+import '../utils/main.css';
 import { Thumbnail, Button, Modal, Popover, OverlayTrigger, Tooltip } from 'react-bootstrap';
 
 class ThumbNail extends React.Component  {

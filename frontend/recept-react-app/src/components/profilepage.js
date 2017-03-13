@@ -1,5 +1,5 @@
 import React from 'react';
-import './main.css';
+import '../utils/main.css';
 import { PageHeader, Row, Col } from 'react-bootstrap';
 import {UserRecipe} from './userrecipe.js';
 import cookie from 'react-cookie';

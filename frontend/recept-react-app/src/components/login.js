@@ -1,5 +1,5 @@
 import React from 'react';
-import './main.css';
+import '../utils/main.css';
 import cookie from 'react-cookie';
 import $ from 'jquery';
 import {Header} from './header.js'

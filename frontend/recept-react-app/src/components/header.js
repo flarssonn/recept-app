@@ -1,5 +1,5 @@
 import React from 'react';
-import './main.css';
+import '../utils/main.css';
 import { Navbar } from './navbar.js';
 import { Search } from './search.js';
 import { Row, Col } from 'react-bootstrap';

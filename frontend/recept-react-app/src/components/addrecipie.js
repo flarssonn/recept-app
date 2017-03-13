@@ -1,54 +1,54 @@
 import React from 'react'
-import { connect } from 'react-redux'
+
 import { Button, FormGroup, FormControl, ControlLabel, HelpBlock, Col } from 'react-bootstrap';
 import $ from 'jquery';
 import {browserHistory} from 'react-router';
 import cookie from 'react-cookie';
 
-function add(recipeTitle, recipeIngredients, recipeDescription, recipeTags){
-  var name = cookie.load('username');
-  var addUrl = 'http://localhost:3001/recipes/add/' + name
-  var data = {
-    title: recipeTitle,
-    ingredients: recipeIngredients,
-    description: recipeDescription,
-    piclink: "",
-    tags: recipeTags
+class AddRecipie extends React.Component {
+
+  add(recipeTitle, recipeIngredients, recipeDescription, recipeTags){
+    var name = cookie.load('username');
+    var addUrl = 'http://localhost:3001/recipes/add/' + name
+    var data = {
+      title: recipeTitle,
+      ingredients: recipeIngredients,
+      description: recipeDescription,
+      piclink: "",
+      tags: recipeTags
   };
-  $.ajax({
-      url: addUrl,
-      dataType: 'json',
-      cache: false,
-      type: 'POST',
-      data: data,
-      success: function(data) {
-          console.log('Success');
-      },
-      error: function(err) {
-          alert('Something went wrong: ' + err);
-      }
-  });
+    $.ajax({
+        url: addUrl,
+        dataType: 'json',
+        cache: false,
+        type: 'POST',
+        data: data,
+        success: function(data) {
+            console.log('Success');
+        },
+        error: function(err) {
+            alert('Something went wrong: ' + err);
+        }
+    });
+  }
 
-}
+  render () {
 
-function FieldGroup({ id, label, help, ...props }) {
-  return (
-    <FormGroup controlId={id}>
-      <Col componentClass={ControlLabel} sm={2}>
-        {label}
-      </Col>
-      <Col sm={10}>
-        <FormControl {...props} />
-        {help && <HelpBlock>{help}</HelpBlock>}
-      </Col>
+    function FieldGroup({ id, label, help, ...props }) {
+      return (
+        <FormGroup controlId={id}>
+          <Col componentClass={ControlLabel} sm={2}>
+            {label}
+          </Col>
+          <Col sm={10}>
+            <FormControl {...props} />
+            {help && <HelpBlock>{help}</HelpBlock>}
+          </Col>
 
-    </FormGroup>
-  );
-}
+        </FormGroup>
+      );
+    }
 
-let AddRecipie = ({ dispatch }) => {
-
-  //let input
   return (
     <div>
       <form onSubmit={e => {
@@ -56,8 +56,7 @@ let AddRecipie = ({ dispatch }) => {
         if (!$("#formControlsTitle").val().trim()) {
           return
         }
-        add($("#formControlsTitle").val(), $("#formControlsIngredients").val(), $("#formControlsDescription").val(), $("#formControlsTags").val() )
-        //dispatch(addRecipie($("#formControlsTitle").val()))
+        this.add($("#formControlsTitle").val(), $("#formControlsIngredients").val(), $("#formControlsDescription").val(), $("#formControlsTags").val() )
 
         $("#formControlsTitle").val("");
         $("#formControlsIngredients").val("");
@@ -102,6 +101,6 @@ let AddRecipie = ({ dispatch }) => {
     </div>
     )
   }
-AddRecipie = connect()(AddRecipie)
+}
 
-export default AddRecipie
+export { AddRecipie }

@@ -1,6 +1,6 @@
 import React from 'react';
-import './main.css';
-import AddRecipie from '../containers/addrecipie.js'
+import '../utils/main.css';
+import { AddRecipie } from '../components/addrecipie.js'
 import { PageHeader, Row, Col } from 'react-bootstrap';
 import cookie from 'react-cookie';
 import {Header} from './header.js';
