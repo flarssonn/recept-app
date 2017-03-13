@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import $ from 'jquery';
 import './App.css';
 import {Header} from './components/header.js';
-import $ from 'jquery';
+import {Footer} from './components/footer.js';
+import { Router, Route, browserHistory } from 'react-router'
+import {MainContent} from './components/main.js'
+import {Test1} from './components/test1.js'
 
 class App extends Component {
 
@@ -10,11 +14,12 @@ class App extends Component {
             url: 'http://localhost:3001/',
             dataType: 'json',
             cache: false,
+            type: 'GET',
             success: function() {
-                console.log('PARTY!');
+                console.log("Party!!");
             },
-            error: function() {
-                console.log('Axel');
+            error: function(err) {
+                console.log(err);
             }
         });
     }
@@ -23,6 +28,11 @@ class App extends Component {
         return (
             <div>
                 <Header />
+                  <Router history={browserHistory}>
+                    <Route path="/" component={MainContent}/>
+                    <Route path="/walla" component={Test1}/>
+                  </Router>
+                <Footer />
             </div>
         );
     }
