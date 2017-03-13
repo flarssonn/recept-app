@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { addRecipie } from '../actions'
 import { Button, FormGroup, FormControl, ControlLabel, HelpBlock, Col } from 'react-bootstrap';
 import $ from 'jquery';
+import {browserHistory} from 'react-router';
 
 function add(recipeTitle, recipeIngredients, recipeDescription, recipeTags){
   var addUrl = 'http://localhost:3001/recipes/add/b@a'
@@ -61,7 +62,8 @@ let AddRecipie = ({ dispatch }) => {
         $("#formControlsIngredients").val("");
         $("#formControlsDescription").val("");
         $("#formControlsTags").val("");
-        
+
+        browserHistory.push('/');
       }}>
 
         <FieldGroup

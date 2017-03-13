@@ -18,6 +18,11 @@ class Navbar extends React.Component  {
       browserHistory.push(path);
     }
 
+    handleRecipeClick(e){
+      const path = '/profile';
+      browserHistory.push(path);
+    }
+
     render() {
         const isLogedIn = this.state.loggedIn;
         if( isLogedIn ){
@@ -27,7 +32,7 @@ class Navbar extends React.Component  {
             <div className="navbar">
                 <ButtonGroup >
                   <Button bsStyle="success" onClick={this.handleProfileClick}>Profile</Button>
-                  <Button bsStyle="success">Browse</Button>
+                  <Button bsStyle="success" onClick={this.handleRecipeClick} >Recipes</Button>
                   <Button bsStyle="success" onClick={this.handleRegistrationClick}>Create Account</Button>
                 </ButtonGroup>
                 <h1>asdasd</h1>
@@ -42,7 +47,7 @@ class Navbar extends React.Component  {
               <div className="navbar">
                   <ButtonGroup >
                     <Button bsStyle="success" onClick={this.handleProfileClick}>Profile</Button>
-                    <Button bsStyle="success">Browse</Button>
+                    <Button bsStyle="success" onClick={this.handleRecipeClick} >Recipes</Button>
                     <Button bsStyle="primary" onClick={this.handleRegistrationClick}>Create Account</Button>
                   </ButtonGroup>
                 </div>
