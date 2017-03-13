@@ -1,7 +1,7 @@
 import React from 'react';
 import './main.css';
 import { Row, Col, PageHeader } from 'react-bootstrap';
-import { ThumbNail } from './thumbnail.js';
+import { RecipeDetail } from './recipedetail.js';
 import $ from 'jquery';
 
 class FirstPage extends React.Component{
@@ -34,7 +34,7 @@ class FirstPage extends React.Component{
     var length = this.state.recipes.length;
 
     for(var i = 0; i < length; i++){
-      list.push(<ThumbNail title={recipes[i].title} ingredients={recipes[i].ingredients} description={recipes[i].description} key={recipes[i].id} />);
+      list.push(<RecipeDetail title={recipes[i].title} ingredients={recipes[i].ingredients} description={recipes[i].description} key={recipes[i].id} />);
     }
     return list;
   }
