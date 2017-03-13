@@ -22,7 +22,7 @@ class App extends Component {
     return (
       <div>
 
-        <Header />
+
 
           <Router history={browserHistory}>
             <Route path="/" component={Container} >
@@ -33,9 +33,6 @@ class App extends Component {
               <Route path="/newrecipe" component={NewRecipe}/>
             </Route>
           </Router>
-
-          <Footer />
-
 
       </div>
     );

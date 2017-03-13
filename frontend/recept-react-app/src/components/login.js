@@ -2,6 +2,7 @@ import React from 'react';
 import './main.css';
 import cookie from 'react-cookie';
 import $ from 'jquery';
+import {Header} from './header.js'
 import { browserHistory } from 'react-router';
 import { Button, FormGroup, FormControl, ControlLabel, HelpBlock, Row, Col, Form } from 'react-bootstrap';
 //import $ from 'jquery';
@@ -30,7 +31,7 @@ class Login extends React.Component  {
           type: 'GET',
           data: data,
           success: function(data) {
-            if(data === '1') {
+            if(data == '1') {
               console.log("i data.success == 1");
               cookie.save('username', name, {path: '/'});
               const path = '/profile';
@@ -63,6 +64,8 @@ class Login extends React.Component  {
     }
 
     return(
+      <div>
+      <Header />
       <div className="Registration">
         <Row>
           <Col md={4}></Col>
@@ -86,6 +89,7 @@ class Login extends React.Component  {
           <Col md={2}><Button bsStyle="danger">Forgotten Password</Button></Col>
           <Col md={4}></Col>
         </Row>
+      </div>
       </div>
     );
   }
