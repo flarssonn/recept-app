@@ -3,7 +3,7 @@ import './main.css';
 import AddRecipie from '../containers/addrecipie.js'
 import { PageHeader, Row, Col } from 'react-bootstrap';
 import {UserRecipe} from './userrecipe.js';
-
+import cookie from 'react-cookie';
 class ProfilePage extends React.Component {
 
 
@@ -20,7 +20,7 @@ class ProfilePage extends React.Component {
         <Row>
           <Col xs={6} md={2}></Col>
           <Col xs={6} md={8}>
-            <PageHeader>Profile Page <small>See your recipies here!</small></PageHeader>
+            <PageHeader>Profile Page {cookie.load('username')}<small>See your recipies here!</small></PageHeader>
             </Col>
             <Col xs={6} md={2}></Col>
         </Row>

@@ -73,7 +73,7 @@ class Login extends React.Component  {
           <Col md={4}></Col>
           <Col md={4}>
             <Form horizontal onSubmit={this.submit}>
-              <FieldGroup id="formControlsEmail" type="email" label="Email" placeholder="Enter email"/>
+              <FieldGroup id="formControlsUsername" type="text" label="Username" placeholder="Enter Username"/>
               <FieldGroup id="formControlsPassword" label="Password" type="password" placeholder="Enter password" />
 
             </Form>

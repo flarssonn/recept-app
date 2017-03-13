@@ -3,6 +3,7 @@ import './main.css';
 import { Row, Col, PageHeader } from 'react-bootstrap';
 import { RecipeDetail } from './recipedetail.js';
 import $ from 'jquery';
+import cookie from 'react-cookie';
 
 class FirstPage extends React.Component{
 
@@ -54,7 +55,7 @@ class FirstPage extends React.Component{
       <Row>
         <Col xs={6} md={2}></Col>
           <Col xs={6} md={8}>
-            <PageHeader>How pie to see you! <small>We have all the recipies for your needs!</small></PageHeader>
+            <PageHeader>How pie to see you {cookie.load('username')}! <small>We have all the recipies for your needs!</small></PageHeader>
           </Col>
         <Col xs={6} md={2}></Col>
       </Row>
