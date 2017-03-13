@@ -17,6 +17,19 @@ router.get('/:id', function(req, res, next) {
   });
 });
 
+/* Check if user exists by username */
+router.get('/:name', function(req, res, next) {
+  var name = req.params.name;
+  models.User.findByUsername(name).then(function(user) {
+    if (user == null) {
+      res.json("false");
+    }
+    else {
+      res.json("true");
+    }
+  });
+});
+
 /* POST create new user */
 router.post('/create', function(req, res, next) {
   models.User.findOne({
@@ -28,6 +41,7 @@ router.post('/create', function(req, res, next) {
         password: req.body.password,
         email:    req.body.email
       }).then(function() {
+
         res.redirect('/');
       });
     } else {

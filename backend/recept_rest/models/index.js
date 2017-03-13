@@ -30,9 +30,11 @@ Object.keys(db).forEach(function(modelName) {
   }
 });
 
-sequelize.sync(
-  {force: true}
-);
+
+// Wipe tables on server reset
+// sequelize.sync(
+  // {force: true}
+// );
 
 
 db.sequelize = sequelize;

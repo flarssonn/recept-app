@@ -11,7 +11,7 @@ router.get('/init', function(req, res, next) {
   models.User.create({
     username: "Bob",
     password: "bob",
-    email: "thebob"
+    email: "bob@bob.bob"
   }).then(function() {
     models.Recipe.create({
       title: "Pie",
@@ -34,14 +34,15 @@ router.get('/ass', function(req, res, next) {
   }).then(function(bob) {
     models.Recipe.findById(1).then(function(paj) {
       bob.addRecipe(paj);
-      res.json(paj)
+
+      models.Recipe.findById(1).then(function(paj) {
+        models.Tag.findById(1).then(function(tasty) {
+          tasty.addRecipe(paj);
+          res.json(paj);
+        })
+      })
     });
   });
 
-  models.Recipe.findById(1).then(function(paj) {
-    models.Tag.findById(1).then(function(tasty) {
-      tasty.addRecipe(paj)
-    })
-  })
 });
 module.exports = router;
