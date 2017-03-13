@@ -22,6 +22,7 @@ log in as root (without password)
 mysql -u root
 
 create database pie;
+
 use pie;
 
 If you have password for your mysql root, you need to modify backend/recept_rest/config/config.json.
