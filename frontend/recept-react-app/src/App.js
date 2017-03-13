@@ -9,6 +9,10 @@ import cookie from 'react-cookie';
 import {NewRecipe} from './components/newrecipe.js';
 import {SearchComponent} from './components/searchcomponent.js';
 
+/*
+  This is the main component, the parent, it handles the routing in the application.
+  It uses browserHistory which is accessible everywhere in the app.
+*/
 
 const Container = (props) => <div>
     {props.children}
