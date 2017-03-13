@@ -11,9 +11,9 @@ router.get('/', function(req, res, next) {
 
 router.get('/init', function(req, res, next) {
   models.User.create({
-    username: "Bob",
+    username: "the@bob.com",
     password: "bob",
-    email: "bob@bob.bob"
+    email: "the@bob.com"
   }).then(function() {
     models.Recipe.create({
       title: "Pie",
@@ -32,7 +32,7 @@ router.get('/init', function(req, res, next) {
 
 router.get('/ass', function(req, res, next) {
   models.User.findOne({
-    where: {username: "Bob"}
+    where: {username: "the@bob.com"}
   }).then(function(bob) {
     models.Recipe.findById(1).then(function(paj) {
       bob.addRecipe(paj);

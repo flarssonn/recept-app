@@ -1,9 +1,17 @@
 import React from 'react';
-import './header.css';
+import '../utils/main.css';
 import { Navbar } from './navbar.js';
 import { Search } from './search.js';
 import { Row, Col } from 'react-bootstrap';
+import {browserHistory} from 'react-router';
+
 class Header extends React.Component  {
+
+  handleClick(e){
+    //e.preventDefault();
+    const path = `/`;
+    browserHistory.push(path);
+  }
 
     render() {
         return(
@@ -11,13 +19,15 @@ class Header extends React.Component  {
 
             <div className="header">
               <Row>
-                <Col md={2}></Col>
+                <Col md={1}></Col>
 
-                <Col xs={12} md={8}>
+                <Col xs={12} md={10}>
                   <Row className="show-grid">
 
                     <Col xs={12} md={3}>
-                      <h1 className="super-header">Recipie</h1>
+                      <div onClick={this.handleClick}>
+                        <h1 className="super-header">Recipie</h1>
+                      </div>
                     </Col>
 
                     <Col xs={12} md={6}>
@@ -31,7 +41,7 @@ class Header extends React.Component  {
                   </Row>
                 </Col>
 
-                <Col md={2}></Col>
+                <Col md={1}></Col>
 
               </Row>
             </div>
