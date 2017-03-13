@@ -4,15 +4,23 @@ import { FormGroup, FormControl, Button, Row, Col } from 'react-bootstrap';
 import $ from 'jquery';
 import {browserHistory} from 'react-router';
 
+/*
+  This class represents the search field and the submit button in the header.
+  The component sends a tag to the searchcomponent when an input is submitted.
+*/
+
 class Search extends React.Component  {
 
+  //Send the tag to the searchcomponent
   handleSubmit(e){
     var input = $("#formControlsSearch").val();
     const path = '/search/' + input;
     browserHistory.push(path);
   }
 
+  //Render
   render() {
+      //HTML-code that will be rendered.
       return(
 
           <div className="search">

@@ -6,16 +6,25 @@ import $ from 'jquery';
 import cookie from 'react-cookie';
 import {Header} from './header.js';
 
+/*
+  This class represents the result that we gain from a search.
+*/
+
 class SearchComponent extends React.Component{
 
+  //Constructor
   constructor(props){
     super(props);
     this.state = {recipes: []}
 
   }
+
+  //This function will be called when the component mounts. Here we handle the ajax calls.
   componentDidMount() {
     var thus = this;
     var text = this.props.params.text;
+
+    //Get the recipes related to the tag from the db.
     $.ajax({
         url: 'http://localhost:3001/recipes/tag/' + text,
         dataType: 'json',
@@ -31,19 +40,20 @@ class SearchComponent extends React.Component{
 
   }
 
+  //Get the recipes related to the tag and put them in a list.
   getRecipes() {
     var recipes = this.state.recipes;
     var list = [];
     var length = this.state.recipes.length;
     var id;
 
-    console.log(id);
     for(var i = 0; i < length; i++){
       list.push(<RecipeDetail title={recipes[i].title} ingredients={recipes[i].ingredients} description={recipes[i].description} key={recipes[i].id} />);
     }
     return list;
   }
 
+  //Render
   render(){
     var recipes = [];
     //console.log(this.state.recipes);
@@ -53,7 +63,7 @@ class SearchComponent extends React.Component{
       console.log("size: " + recipes.length);
     }
 
-
+    //HTML-code that will be rendered.
     return(
       <div className="fpcontainer">
         <Header/>

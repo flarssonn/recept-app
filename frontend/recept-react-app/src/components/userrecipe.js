@@ -5,17 +5,25 @@ import { RecipeDetail } from './recipedetail.js';
 import $ from 'jquery';
 import cookie from 'react-cookie';
 
+/*
+  This class is used to get all the recipes related to a specific user.
+*/
+
 class UserRecipe extends React.Component{
 
+  //Contructor
   constructor(props){
     super(props);
     this.state = {recipes: [],
                   users: []}
 
   }
+
+  //Componenet did mount, ajax calls are handled here
   componentDidMount() {
     var thus = this;
 
+    //Query all the recipes
     $.ajax({
         url: 'http://localhost:3001/recipes',
         dataType: 'json',
@@ -29,6 +37,7 @@ class UserRecipe extends React.Component{
         }
     });
 
+    //Query all the user
     $.ajax({
         url: 'http://localhost:3001/users',
         dataType: 'json',
@@ -44,6 +53,7 @@ class UserRecipe extends React.Component{
 
   }
 
+  //Get the recipes related to a user
   getRecipes() {
     var recipes = this.state.recipes;
     var users = this.state.users;
@@ -66,16 +76,17 @@ class UserRecipe extends React.Component{
     return list;
   }
 
+  //Render
   render(){
     var recipes = [];
-    //console.log(this.state.recipes);
+
     if (this.state.recipes.length !== 0){
       console.log("success");
       recipes = this.getRecipes();
       console.log("size: " + recipes.length);
     }
 
-
+    //HTML that is rendered
     return(
       <div className="fpcontainer">
         <Row>

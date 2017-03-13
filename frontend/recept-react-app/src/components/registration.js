@@ -4,8 +4,14 @@ import {Row, Col, FormGroup, FormControl, ControlLabel, HelpBlock, Form, Button 
 import $ from 'jquery';
 import { browserHistory } from 'react-router';
 import {Header} from './header.js';
+
+/*
+  This component handles the registration of a user.
+*/
+
 class Registration extends React.Component {
 
+  //Submit the input from the form to the db.
   submit(e) {
     var email = $("#formControlsEmail").val();
     var password = $("#formControlsPassword").val();
@@ -15,6 +21,7 @@ class Registration extends React.Component {
       password: password,
       email:    email
     };
+    //Ajax call to the create router on the server.
     $.ajax({
         url: 'http://localhost:3001/users/create',
         dataType: 'json',
@@ -33,7 +40,9 @@ class Registration extends React.Component {
     browserHistory.push(path);
   }
 
+  //Render
   render() {
+    //Input field implementing bootstrap
     function FieldGroup({ id, label, help, ...props }) {
       return (
         <FormGroup controlId={id}>
@@ -49,6 +58,7 @@ class Registration extends React.Component {
       );
     }
 
+    //HTML-code that will be rendered.
     return(
       <div>
       <Header/>
