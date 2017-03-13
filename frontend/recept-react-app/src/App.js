@@ -7,21 +7,18 @@ import {Registration} from './components/registration.js';
 import {Login} from './components/login.js';
 import cookie from 'react-cookie';
 import {NewRecipe} from './components/newrecipe.js';
+import {SearchComponent} from './components/searchcomponent.js';
+
 
 const Container = (props) => <div>
     {props.children}
-
 </div>
 
 class App extends Component {
 
   render() {
-    console.log( cookie.load('username') );
     return (
       <div>
-
-
-
           <Router history={browserHistory}>
             <Route path="/" component={Container} >
               <IndexRoute component={FirstPage}/>
@@ -29,9 +26,9 @@ class App extends Component {
               <Route path="/login" component={(props, state, params) => <Login text="My Test App" {...props} />} />
               <Route path="/registration" component={Registration}/>
               <Route path="/newrecipe" component={NewRecipe}/>
+              <Route path="/search/:text" component={SearchComponent}/>
             </Route>
           </Router>
-
       </div>
     );
   }
