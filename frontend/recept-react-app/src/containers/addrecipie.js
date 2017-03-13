@@ -3,9 +3,11 @@ import { connect } from 'react-redux'
 import { Button, FormGroup, FormControl, ControlLabel, HelpBlock, Col } from 'react-bootstrap';
 import $ from 'jquery';
 import {browserHistory} from 'react-router';
+import cookie from 'react-cookie';
 
 function add(recipeTitle, recipeIngredients, recipeDescription, recipeTags){
-  var addUrl = 'http://localhost:3001/recipes/add/b@a'
+  var name = cookie.load('username');
+  var addUrl = 'http://localhost:3001/recipes/add/' + name
   var data = {
     title: recipeTitle,
     ingredients: recipeIngredients,

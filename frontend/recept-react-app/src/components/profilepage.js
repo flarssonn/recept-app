@@ -20,7 +20,7 @@ class ProfilePage extends React.Component {
         <Row>
           <Col xs={6} md={2}></Col>
           <Col xs={6} md={8}>
-            <PageHeader>Profile Page {cookie.load('username')}<small>See your recipies here!</small></PageHeader>
+            <PageHeader>{cookie.load('username')} <small>See your recipies here!</small></PageHeader>
             </Col>
             <Col xs={6} md={2}></Col>
         </Row>

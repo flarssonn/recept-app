@@ -31,11 +31,10 @@ class Navbar extends React.Component  {
 
             <div className="navbar">
                 <ButtonGroup >
-                  <Button bsStyle="success" onClick={this.handleProfileClick}>Profile</Button>
-                  <Button bsStyle="success" onClick={this.handleRecipeClick} >Add new recipe</Button>
-                  <Button bsStyle="success" onClick={this.handleRegistrationClick}>Create Account</Button>
+                  <Button bsStyle="success" onClick={this.handleProfileClick}>My Recipes</Button>
+                  <Button bsStyle="success" onClick={this.handleRecipeClick} >Add New Recipe</Button>
+                  <Button bsStyle="danger" onClick={this.handleRegistrationClick}>Log Out</Button>
                 </ButtonGroup>
-                <h1>asdasd</h1>
               </div>
 
           );
@@ -46,8 +45,7 @@ class Navbar extends React.Component  {
 
               <div className="navbar">
                   <ButtonGroup >
-                    <Button bsStyle="success" onClick={this.handleProfileClick}>Profile</Button>
-                    <Button bsStyle="success" onClick={this.handleRecipeClick} >Add new recipe</Button>
+                    <Button bsStyle="success" onClick={this.handleProfileClick}>Log In</Button>
                     <Button bsStyle="primary" onClick={this.handleRegistrationClick}>Create Account</Button>
                   </ButtonGroup>
                 </div>

@@ -44,9 +44,7 @@ class FirstPage extends React.Component{
     var recipes = [];
     //console.log(this.state.recipes);
     if (this.state.recipes.length !== 0){
-      console.log("success");
       recipes = this.getRecipes();
-      console.log("size: " + recipes.length);
     }
 
 

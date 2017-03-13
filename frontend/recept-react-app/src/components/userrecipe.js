@@ -3,6 +3,7 @@ import './main.css';
 import { Row, Col } from 'react-bootstrap';
 import { RecipeDetail } from './recipedetail.js';
 import $ from 'jquery';
+import cookie from 'react-cookie';
 
 class UserRecipe extends React.Component{
 
@@ -43,16 +44,15 @@ class UserRecipe extends React.Component{
 
   }
 
-  //TODO fix actual loggedin person to get their recipe
   getRecipes() {
     var recipes = this.state.recipes;
     var users = this.state.users;
     var list = [];
     var length = this.state.recipes.length;
-    //console.log(users[2].id);
+    var name = cookie.load('username')
     var id;
     for(var j = 0; j < users.length; j++){
-      if(users[j].username === 'Acke@a'){
+      if(users[j].username === name){
         id = users[j].id;
       }
     }

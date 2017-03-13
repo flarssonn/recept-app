@@ -7,7 +7,7 @@ import {FirstPage} from './components/firstpage.js';
 import {ProfilePage} from './components/profilepage.js';
 import {Registration} from './components/registration.js';
 import {Login} from './components/login.js';
-
+import cookie from 'react-cookie';
 
 const Container = (props) => <div>
     {props.children}
@@ -20,7 +20,12 @@ class App extends Component {
   render() {
 
     let header = null;
-    header = <Header loggedIn={true}/>
+    if(cookie.load('username') !== null){
+      header = <Header loggedIn={true}/>
+    }else{
+      header = <Header loggedIn={false}/>
+    }
+
 
     return (
       <div>
