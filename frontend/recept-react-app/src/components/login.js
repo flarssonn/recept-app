@@ -10,15 +10,9 @@ import { Button, FormGroup, FormControl, ControlLabel, HelpBlock, Row, Col, Form
 
 class Login extends React.Component  {
 
-  constructor(props){
-    super(props);
-
-  }
-
   onClick (){
       var name = $("#formControlsUsername").val();
       var password = $("#formControlsPassword").val();
-      var self = this;
       var data = {
         username: name,
         password: password,
@@ -31,7 +25,7 @@ class Login extends React.Component  {
           type: 'GET',
           data: data,
           success: function(data) {
-            if(data == '1') {
+            if(data === '1') {
               console.log("i data.success == 1");
               cookie.save('username', name, {path: '/'});
               const path = '/profile';

@@ -1,6 +1,5 @@
 import React from 'react';
 import './main.css';
-import AddRecipie from '../containers/addrecipie.js'
 import { PageHeader, Row, Col } from 'react-bootstrap';
 import {UserRecipe} from './userrecipe.js';
 import cookie from 'react-cookie';
