@@ -31,7 +31,7 @@ Replace the empty password field with your root password.
 "development": {   
   "username": "root",  
   "password": "your root password goes here",  
-  "database": "pie"  
+  "database": "pie",    
   "host": "127.0.0.1",  
   "dialect": "mysql"  
  }
