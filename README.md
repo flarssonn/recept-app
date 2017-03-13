@@ -1,5 +1,5 @@
 # Recipie
-This is a wep-application created for the course DAT076/DIT126
+This is a wep-application created for the course DAT076/DIT126.
 
 #Overwiev
 The app is server side MVC-based. It uses Node.js together with Express in the backend and React.js in the frontend.
@@ -28,11 +28,11 @@ use pie;
 If you have password for your mysql root, you need to modify backend/recept_rest/config/config.json.
 Replace the empty password field with your root password.
 
-"development": {
-  "username": "root",
-  "password": "<your root password goes here>",
-  "database": "pie",
-  "host": "127.0.0.1",
-  "dialect": "mysql"
+"development": {   
+  "username": "root",  
+  "password": "your root password goes here",  
+  "database": "pie"  
+  "host": "127.0.0.1",  
+  "dialect": "mysql"  
  }
 
