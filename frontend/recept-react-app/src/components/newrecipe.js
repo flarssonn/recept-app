@@ -6,12 +6,8 @@ import cookie from 'react-cookie';
 import {Header} from './header.js';
 
 class NewRecipe extends React.Component {
-  //Byt ut ListGroupItem mot en custom recipieItem
 
-  //Implementera ett sätt att se olika listor, typ alla sina recept, sina favoriter
   render () {
-
-
     return (
 
       <div>
@@ -26,6 +22,7 @@ class NewRecipe extends React.Component {
         <Row>
           <Col xs={6} md={2}></Col>
           <Col xs={6} md={8}>
+            //Component where you can add a new recipe
             <AddRecipie />
           </Col>
           <Col xs={6} md={2}></Col>

@@ -6,6 +6,7 @@ import $ from 'jquery';
 import cookie from 'react-cookie';
 import {Header} from './header.js'
 
+//First page of the application, displaying all recipes
 class FirstPage extends React.Component{
 
   constructor(props){
@@ -16,6 +17,7 @@ class FirstPage extends React.Component{
   componentDidMount() {
     var thus = this;
 
+    //AJAX call to get all recipes
     $.ajax({
         url: 'http://localhost:3001/recipes',
         dataType: 'json',
@@ -35,6 +37,7 @@ class FirstPage extends React.Component{
     var list = [];
     var length = this.state.recipes.length;
 
+    //Creates a list of all recipes
     for(var i = 0; i < length; i++){
       list.push(<RecipeDetail title={recipes[i].title} ingredients={recipes[i].ingredients} description={recipes[i].description} key={recipes[i].id} />);
     }
@@ -43,7 +46,7 @@ class FirstPage extends React.Component{
 
   render(){
     var recipes = [];
-    //console.log(this.state.recipes);
+    
     if (this.state.recipes.length !== 0){
       recipes = this.getRecipes();
     }
