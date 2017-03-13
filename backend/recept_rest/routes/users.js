@@ -9,11 +9,27 @@ router.get('/', function(req, res, next) {
   });
 });
 
-/* GET single user by id */
+/* GET single user by id
 router.get('/:id', function(req, res, next) {
   var id = parseInt(req.params.id);
   models.User.findById(id).then(function(user) {
     res.json(user);
+  });
+});
+*/
+
+/* Check if user exists by username and password */
+router.get('/checkLogin/:username/:password', function(req, res, next) {
+  models.User.findOne({
+    where: {username: req.params.username,
+            password: req.params.password}
+  }).then(function(user) {
+    if (user === null) {
+      res.json('0')
+    }
+    else {
+      res.json('1')
+    }
   });
 });
 

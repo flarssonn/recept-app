@@ -4,8 +4,12 @@ import { Button, FormGroup, FormControl, ControlLabel, HelpBlock, Col, Form, Row
 import $ from 'jquery';
 import {doLogin, isLoggedIn, addRecipie} from '../actions';
 
-function login(){
 
+function login(dispatch){
+  dispatch(doLogin($("#formControlsEmail").val()))
+  console.log(doLogin($("#formControlsEmail").val()));
+
+  console.log(dispatch(addRecipie($("#formControlsEmail").val()) ));
 
 }
 const getUsers = (user) => {
@@ -15,7 +19,7 @@ const getUsers = (user) => {
 
 const mapStateToProps = (state) => {
   return {
-    user: getUsers(state.user)
+    status: state.status
   }
 }
 
@@ -58,11 +62,8 @@ let LogInContainer = ({ dispatch }) => {
             if (!$("#formControlsEmail").val().trim()) {
               return
             }
-            login();
-            dispatch(doLogin($("#formControlsEmail").val()))
-            console.log(doLogin($("#formControlsEmail").val()));
+            login(dispatch);
 
-            console.log(dispatch(addRecipie($("#formControlsEmail").val()) ));
 
           }}>
             <FieldGroup id="formControlsEmail" type="email" label="Email" placeholder="Enter email"/>
@@ -76,6 +77,9 @@ let LogInContainer = ({ dispatch }) => {
     </div>
     )
   }
-LogInContainer = connect(mapStateToProps)(LogInContainer)
+LogInContainer = connect(
+
+  mapStateToProps
+)(LogInContainer)
 
 export default LogInContainer

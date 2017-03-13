@@ -11,9 +11,9 @@ router.get('/', function(req, res, next) {
 
 router.get('/init', function(req, res, next) {
   models.User.create({
-    username: "Bob",
+    username: "the@bob.com",
     password: "bob",
-    email: "thebob"
+    email: "the@bob.com"
   }).then(function() {
     models.Recipe.create({
       title: "Pie",
