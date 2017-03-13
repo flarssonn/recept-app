@@ -1,4 +1,4 @@
-# recept-app
+# Recipie
 This is a wep-application created for the course DAT076/DIT126
 
 #Overwiev
@@ -7,7 +7,9 @@ It uses Jquery ajax for communication between the client and the server and sequ
 
 #How to run
 clone repository 
+
 in /frontend/recept-react-app npm install
+
 in /backend/recept_rest npm install
 
 start mysql database
