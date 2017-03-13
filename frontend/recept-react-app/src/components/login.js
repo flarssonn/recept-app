@@ -15,7 +15,7 @@ class Login extends React.Component  {
   }
 
   onClick (){
-      var name = $("#formControlsEmail").val();
+      var name = $("#formControlsUsername").val();
       var password = $("#formControlsPassword").val();
       var self = this;
       var data = {
@@ -30,7 +30,7 @@ class Login extends React.Component  {
           type: 'GET',
           data: data,
           success: function(data) {
-            if(data == '1') {
+            if(data === '1') {
               console.log("i data.success == 1");
               cookie.save('username', name, {path: '/'});
               const path = '/profile';

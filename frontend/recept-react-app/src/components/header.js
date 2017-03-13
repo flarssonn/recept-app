@@ -7,12 +7,12 @@ import {browserHistory} from 'react-router';
 
 class Header extends React.Component  {
 
-
   handleClick(e){
     //e.preventDefault();
     const path = `/`;
     browserHistory.push(path);
   }
+
     render() {
         return(
           <div>
@@ -35,7 +35,7 @@ class Header extends React.Component  {
                     </Col>
 
                     <Col xs={12} md={3}>
-                      <Navbar loggedIn={this.props.loggedIn} />
+                      <Navbar />
                     </Col>
 
                   </Row>

@@ -8,6 +8,7 @@ import {ProfilePage} from './components/profilepage.js';
 import {Registration} from './components/registration.js';
 import {Login} from './components/login.js';
 import cookie from 'react-cookie';
+import {NewRecipe} from './components/newrecipe.js';
 
 const Container = (props) => <div>
     {props.children}
@@ -16,21 +17,12 @@ const Container = (props) => <div>
 
 class App extends Component {
 
-
   render() {
-
-    let header = null;
-    if(cookie.load('username') !== null){
-      header = <Header loggedIn={true}/>
-    }else{
-      header = <Header loggedIn={false}/>
-    }
-
-
+    console.log( cookie.load('username') );
     return (
       <div>
 
-        {header}
+        <Header />
 
           <Router history={browserHistory}>
             <Route path="/" component={Container} >
@@ -38,6 +30,7 @@ class App extends Component {
               <Route path="/profile" component={ProfilePage}/>
               <Route path="/login" component={(props, state, params) => <Login text="My Test App" {...props} />} />
               <Route path="/registration" component={Registration}/>
+              <Route path="/newrecipe" component={NewRecipe}/>
             </Route>
           </Router>
 

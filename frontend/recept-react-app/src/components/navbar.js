@@ -2,11 +2,16 @@ import React from 'react';
 import './main.css';
 import { ButtonGroup, Button, } from 'react-bootstrap';
 import { browserHistory } from 'react-router';
+import cookie from 'react-cookie';
 
 class Navbar extends React.Component  {
+
     constructor(props){
       super(props);
-      this.state = {isLoggedIn: this.props.logedIn}
+
+    }
+    componentWillMount(){
+      this.state = {loggedInUser: cookie.load('username')};
     }
     handleProfileClick(e) {
       const path = '/login';
@@ -18,22 +23,30 @@ class Navbar extends React.Component  {
       browserHistory.push(path);
     }
 
-    handleRecipeClick(e){
-      const path = '/profile';
+    handleNewRecipeClick(e){
+      const path = '/newrecipe';
       browserHistory.push(path);
     }
 
+    handleLogOutClick(e){
+      cookie.remove('username', { path: '/'});
+      browserHistory.push('/');
+    }
+    handleMyRecipesClick(e){
+      browserHistory.push('/profile');
+    }
+
     render() {
-        const isLogedIn = this.state.loggedIn;
-        if( isLogedIn ){
+
+        if(this.state.loggedInUser !== undefined){
 
           return(
 
-            <div className="navbar">
+            <div className="navbar" key={this.state.isLoggedIn}>
                 <ButtonGroup >
-                  <Button bsStyle="success" onClick={this.handleProfileClick}>My Recipes</Button>
-                  <Button bsStyle="success" onClick={this.handleRecipeClick} >Add New Recipe</Button>
-                  <Button bsStyle="danger" onClick={this.handleRegistrationClick}>Log Out</Button>
+                  <Button bsStyle="success" onClick={this.handleMyRecipesClick}>My Recipes</Button>
+                  <Button bsStyle="success" onClick={this.handleNewRecipeClick} >Add New Recipe</Button>
+                  <Button bsStyle="danger" onClick={this.handleLogOutClick}>Log Out</Button>
                 </ButtonGroup>
               </div>
 
@@ -43,7 +56,7 @@ class Navbar extends React.Component  {
 
           return(
 
-              <div className="navbar">
+              <div className="navbar" key={this.state.isLoggedIn}>
                   <ButtonGroup >
                     <Button bsStyle="success" onClick={this.handleProfileClick}>Log In</Button>
                     <Button bsStyle="primary" onClick={this.handleRegistrationClick}>Create Account</Button>

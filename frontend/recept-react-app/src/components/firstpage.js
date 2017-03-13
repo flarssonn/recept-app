@@ -53,7 +53,7 @@ class FirstPage extends React.Component{
       <Row>
         <Col xs={6} md={2}></Col>
           <Col xs={6} md={8}>
-            <PageHeader>How pie to see you {cookie.load('username')}! <small>We have all the recipies for your needs!</small></PageHeader>
+            <PageHeader>How pie to see you {cookie.load('username')} ! <small>We have all the recipies for your needs!</small></PageHeader>
           </Col>
         <Col xs={6} md={2}></Col>
       </Row>

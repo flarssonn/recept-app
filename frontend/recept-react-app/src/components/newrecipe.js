@@ -6,7 +6,7 @@ import {UserRecipe} from './userrecipe.js';
 import cookie from 'react-cookie';
 
 
-class ProfilePage extends React.Component {
+class NewRecipe extends React.Component {
   //Byt ut ListGroupItem mot en custom recipieItem
 
   //Implementera ett sätt att se olika listor, typ alla sina recept, sina favoriter
@@ -15,28 +15,28 @@ class ProfilePage extends React.Component {
 
     return (
 
-
       <div>
         <Row>
           <Col xs={6} md={2}></Col>
           <Col xs={6} md={8}>
-            <PageHeader>{cookie.load('username')} <small>See your recipies here!</small></PageHeader>
+            <PageHeader>{cookie.load('username')} <small>Add new recipies here!</small></PageHeader>
             </Col>
             <Col xs={6} md={2}></Col>
         </Row>
         <Row>
           <Col xs={6} md={2}></Col>
           <Col xs={6} md={8}>
-            <UserRecipe />
+            <AddRecipie />
           </Col>
           <Col xs={6} md={2}></Col>
         </Row>
 
       </div>
 
+
     );
 
   }
 }
 
-export {ProfilePage};
+export {NewRecipe};
