@@ -3,7 +3,7 @@ import './main.css';
 import {Row, Col, FormGroup, FormControl, ControlLabel, HelpBlock, Form, Button } from 'react-bootstrap';
 import $ from 'jquery';
 import { browserHistory } from 'react-router';
-
+import {Header} from './header.js';
 class Registration extends React.Component {
 
   submit(e) {
@@ -50,6 +50,8 @@ class Registration extends React.Component {
     }
 
     return(
+      <div>
+      <Header/>
       <div className="Registration">
         <Row>
           <Col md={4}></Col>
@@ -88,6 +90,7 @@ class Registration extends React.Component {
           <Col md={4}></Col>
           <Col md={4}></Col>
         </Row>
+      </div>
       </div>
     );
   }

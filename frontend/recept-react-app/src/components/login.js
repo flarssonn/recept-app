@@ -2,6 +2,7 @@ import React from 'react';
 import './main.css';
 import cookie from 'react-cookie';
 import $ from 'jquery';
+import {Header} from './header.js'
 import { browserHistory } from 'react-router';
 import { Button, FormGroup, FormControl, ControlLabel, HelpBlock, Row, Col, Form } from 'react-bootstrap';
 //import $ from 'jquery';
@@ -9,15 +10,9 @@ import { Button, FormGroup, FormControl, ControlLabel, HelpBlock, Row, Col, Form
 
 class Login extends React.Component  {
 
-  constructor(props){
-    super(props);
-
-  }
-
   onClick (){
       var name = $("#formControlsUsername").val();
       var password = $("#formControlsPassword").val();
-      var self = this;
       var data = {
         username: name,
         password: password,
@@ -63,6 +58,8 @@ class Login extends React.Component  {
     }
 
     return(
+      <div>
+      <Header />
       <div className="Registration">
         <Row>
           <Col md={4}></Col>
@@ -86,6 +83,7 @@ class Login extends React.Component  {
           <Col md={2}><Button bsStyle="danger">Forgotten Password</Button></Col>
           <Col md={4}></Col>
         </Row>
+      </div>
       </div>
     );
   }

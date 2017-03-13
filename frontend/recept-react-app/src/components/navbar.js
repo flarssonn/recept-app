@@ -8,11 +8,10 @@ class Navbar extends React.Component  {
 
     constructor(props){
       super(props);
-
-    }
-    componentWillMount(){
       this.state = {loggedInUser: cookie.load('username')};
+      this.handleLogOutClick = this.handleLogOutClick.bind(this);
     }
+
     handleProfileClick(e) {
       const path = '/login';
       browserHistory.push(path);
@@ -30,8 +29,10 @@ class Navbar extends React.Component  {
 
     handleLogOutClick(e){
       cookie.remove('username', { path: '/'});
+      this.setState({loggedInUser: cookie.load('username')});
       browserHistory.push('/');
     }
+
     handleMyRecipesClick(e){
       browserHistory.push('/profile');
     }

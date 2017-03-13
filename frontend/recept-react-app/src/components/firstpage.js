@@ -4,6 +4,7 @@ import { Row, Col, PageHeader } from 'react-bootstrap';
 import { RecipeDetail } from './recipedetail.js';
 import $ from 'jquery';
 import cookie from 'react-cookie';
+import {Header} from './header.js'
 
 class FirstPage extends React.Component{
 
@@ -49,6 +50,8 @@ class FirstPage extends React.Component{
 
 
     return(
+      <div>
+      <Header/>
       <div className="fpcontainer">
       <Row>
         <Col xs={6} md={2}></Col>
@@ -65,6 +68,7 @@ class FirstPage extends React.Component{
           <Col xs={6} md={2}></Col>
         </Row>
 
+      </div>
       </div>
     );
 

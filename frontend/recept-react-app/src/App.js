@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import {Header} from './components/header.js';
-import {Footer} from './components/footer.js';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import {FirstPage} from './components/firstpage.js';
 import {ProfilePage} from './components/profilepage.js';
@@ -22,7 +20,7 @@ class App extends Component {
     return (
       <div>
 
-        <Header />
+
 
           <Router history={browserHistory}>
             <Route path="/" component={Container} >
@@ -33,9 +31,6 @@ class App extends Component {
               <Route path="/newrecipe" component={NewRecipe}/>
             </Route>
           </Router>
-
-          <Footer />
-
 
       </div>
     );
