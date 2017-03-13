@@ -56,7 +56,7 @@ router.post('/add/:user', function(req, res, next) {
 });
 
 //Find all recipes from one tag
-router.get('/:tag', function(req, res, next) {
+router.get('/tag/:tag', function(req, res, next) {
   models.Tag.findOne({
     where: {tag: req.params.tag}
   }).then(function(existingTag) {
