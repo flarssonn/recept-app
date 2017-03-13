@@ -38,7 +38,7 @@ class Navbar extends React.Component  {
     }
 
     render() {
-
+        //If there is a logged in user get logged in navbar
         if(this.state.loggedInUser !== undefined){
 
           return(

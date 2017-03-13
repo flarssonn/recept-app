@@ -5,10 +5,13 @@ import $ from 'jquery';
 import {browserHistory} from 'react-router';
 import cookie from 'react-cookie';
 
+//Class that takes input and creates a new recipe
 class AddRecipie extends React.Component {
 
+  //Method for adding a new recipe
   add(recipeTitle, recipeIngredients, recipeDescription, recipeTags){
     var name = cookie.load('username');
+    //URL to be called in the REST-API
     var addUrl = 'http://localhost:3001/recipes/add/' + name
     var data = {
       title: recipeTitle,
@@ -17,6 +20,7 @@ class AddRecipie extends React.Component {
       piclink: "",
       tags: recipeTags
   };
+    //AJAX call to backend
     $.ajax({
         url: addUrl,
         dataType: 'json',
@@ -33,7 +37,7 @@ class AddRecipie extends React.Component {
   }
 
   render () {
-
+    //Fancier input field
     function FieldGroup({ id, label, help, ...props }) {
       return (
         <FormGroup controlId={id}>
@@ -53,6 +57,7 @@ class AddRecipie extends React.Component {
     <div>
       <form onSubmit={e => {
         e.preventDefault()
+        //If no title then don't create a new recipe
         if (!$("#formControlsTitle").val().trim()) {
           return
         }
@@ -63,6 +68,7 @@ class AddRecipie extends React.Component {
         $("#formControlsDescription").val("");
         $("#formControlsTags").val("");
 
+        //Redirect to the profile page
         browserHistory.push('/profile');
       }}>
 
