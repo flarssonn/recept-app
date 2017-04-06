@@ -17,6 +17,7 @@ class ThumbNail extends React.Component  {
             <p>Ingredients: {this.props.ingredients}</p>
             <p>Description: {this.props.description}</p>
             <Button bsStyle="default" bsSize="small" onClick={this.onClick}>See more!</Button>
+            <Button bsStyle="warning" bsSize="small" onClick={this.favourite}>Favourite</Button>
           </Thumbnail>
         );
     }

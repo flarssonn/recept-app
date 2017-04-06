@@ -3,8 +3,12 @@ import '../../utils/main.css';
 import { Thumbnail, Button, Modal } from 'react-bootstrap';
 import $ from 'jquery'
 import {browserHistory} from 'react-router'
+import cookie from 'react-cookie'
 
 const RecipeDetail = React.createClass({
+
+
+
   getInitialState() {
     return { showModal: false };
   },
@@ -15,6 +19,53 @@ const RecipeDetail = React.createClass({
 
   open() {
     this.setState({ showModal: true });
+  },
+
+  favourite() {
+    var users = []
+    var id = null
+    var thus = this
+    var name = cookie.load('username')
+
+    $.ajax({
+        url: 'http://localhost:3001/users',
+        dataType: 'json',
+        cache: false,
+        type: 'GET',
+        success: function(data) {
+          users = data
+        },
+        error: function(err) {
+            console.log(err);
+        }
+    }).then(() => {
+      for(var j = 0; j < users.length; j++){
+        if(users[j].username === name){
+          id = users[j].id;
+        }
+      }
+      $.ajax({
+          url: 'http://localhost:3001/favourites/add/' + id + '/' + this.props.recipeId,
+          dataType: 'json',
+          cache: false,
+          type: 'POST',
+          success: function(data) {
+            console.log("Succsesfully added to favourites!")
+
+          },
+          error: function(err) {
+              console.log(err);
+          }
+      })
+    }
+    )
+
+
+
+    //console.log(users)
+
+
+
   },
 
   removeRecipe(){
@@ -51,6 +102,7 @@ const RecipeDetail = React.createClass({
           <p>Ingredients: {this.props.ingredients}</p>
           <p>Description: {this.props.description}</p>
           <Button bsStyle="default" bsSize="small" onClick={this.open}>See More!</Button>
+          <Button bsStyle="warning" bsSize="small" onClick={this.favourite}>Favourite</Button>
         </Thumbnail>
 
         <Modal show={this.state.showModal} onHide={this.close}>
