@@ -24,7 +24,6 @@ const RecipeDetail = React.createClass({
   favourite() {
     var users = []
     var id = null
-    var thus = this
     var name = cookie.load('username')
 
     $.ajax({

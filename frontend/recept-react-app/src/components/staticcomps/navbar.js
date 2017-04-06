@@ -37,6 +37,10 @@ class Navbar extends React.Component  {
       browserHistory.push('/profile');
     }
 
+    handleFavouriteRecipesClick(e){
+      browserHistory.push('/favouriterecipes');
+    }
+
     render() {
         //If there is a logged in user get logged in navbar
         if(this.state.loggedInUser !== undefined){
@@ -46,6 +50,7 @@ class Navbar extends React.Component  {
             <div className="navbar" key={this.state.isLoggedIn}>
                 <ButtonGroup >
                   <Button bsStyle="success" onClick={this.handleMyRecipesClick}>My Recipes</Button>
+                  <Button bsStyle="success" onClick={this.handleFavouriteRecipesClick}>Favourites</Button> : <div></div>
                   <Button bsStyle="success" onClick={this.handleNewRecipeClick} >Add New Recipe</Button>
                   <Button bsStyle="danger" onClick={this.handleLogOutClick}>Log Out</Button>
                 </ButtonGroup>
