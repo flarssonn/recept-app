@@ -67,22 +67,18 @@ router.get('/tag/:tag', function(req, res, next) {
   });
 });
 
+// Edit a recipe
 router.post('/edit/:id', function(req, res, next) {
+  var id = req.params.id;
   models.Recipe.findById(id).then(function(recipe) {
-    recipe.title = req.body.title;
-    recipe.description = req.body.description;
-    recipe.ingredients = req.body.ingredients;
-    recipe.piclink = req.body.piclink;
-  });
-});
-
-router.post('/edittest/:id', function(req, res, next) {
-  var id = parseInt(req.params.id);
-  models.Recipe.findById(id).then(function(recipe) {
-    recipe.title = "BANANARAMA";
-    recipe.description = "BANANARAMA";
-    recipe.ingredients = "BANANARAMA";
-    recipe.piclink = "BANANARAMA";
+    recipe.update({
+      title: req.body.title,
+      description: req.body.description,
+      ingredients: req.body.ingredients,
+      piclink: req.body.piclink
+    }).then(function() {
+      res.json('updated');
+    });
   });
 });
 
@@ -90,10 +86,12 @@ router.post('/edittest/:id', function(req, res, next) {
 router.post('/delete/:id', function(req, res, next) {
     var rid = parseInt(req.params.id);
     models.Recipe.destroy({
-      where: {id: rid}
-      }).then(function() {
-          res.json("asdf");
-        });
+      where: {
+        id: rid
+      }
+    }).then(function() {
+      res.redirect('/recipes');
+    });
 });
 
 module.exports = router;

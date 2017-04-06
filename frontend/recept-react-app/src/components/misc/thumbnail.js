@@ -2,6 +2,10 @@ import React from 'react';
 import '../utils/main.css';
 import { Thumbnail, Button, Modal, Popover, OverlayTrigger, Tooltip } from 'react-bootstrap';
 
+/*
+  This class is a thumbnail component representing a recipe.
+*/
+
 class ThumbNail extends React.Component  {
   onClick(e){
     alert("YO");
@@ -16,7 +20,6 @@ class ThumbNail extends React.Component  {
           </Thumbnail>
         );
     }
-
 }
 
 export {ThumbNail};

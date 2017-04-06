@@ -1,5 +1,5 @@
 import React from 'react';
-import '../utils/main.css';
+import '../../utils/main.css';
 import { ButtonGroup, Button, } from 'react-bootstrap';
 import { browserHistory } from 'react-router';
 import cookie from 'react-cookie';
@@ -38,7 +38,7 @@ class Navbar extends React.Component  {
     }
 
     render() {
-
+        //If there is a logged in user get logged in navbar
         if(this.state.loggedInUser !== undefined){
 
           return(

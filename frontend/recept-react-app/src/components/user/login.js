@@ -1,8 +1,8 @@
 import React from 'react';
-import '../utils/main.css';
+import '../../utils/main.css';
 import cookie from 'react-cookie';
 import $ from 'jquery';
-import {Header} from './header.js'
+import {Header} from '../staticcomps/header.js'
 import { browserHistory } from 'react-router';
 import { Button, FormGroup, FormControl, ControlLabel, HelpBlock, Row, Col, Form } from 'react-bootstrap';
 //import $ from 'jquery';
@@ -11,6 +11,7 @@ import { Button, FormGroup, FormControl, ControlLabel, HelpBlock, Row, Col, Form
 class Login extends React.Component  {
 
   onClick (){
+      //get data from inputfields
       var name = $("#formControlsUsername").val();
       var password = $("#formControlsPassword").val();
       var data = {
@@ -18,6 +19,7 @@ class Login extends React.Component  {
         password: password,
         email:    name
       };
+      //AJAX call to log in user. Sets cookie to user if success
       $.ajax({
           url: 'http://localhost:3001/users/checkLogin/' + name + '/' + password,
           dataType: 'json',
@@ -45,6 +47,7 @@ class Login extends React.Component  {
   }
 
   render() {
+    //Input field from bootstrap
     function FieldGroup({ id, label, help, ...props }) {
       return (
         <FormGroup controlId={id}>

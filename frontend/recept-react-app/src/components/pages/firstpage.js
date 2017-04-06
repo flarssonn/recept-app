@@ -1,12 +1,13 @@
 import React from 'react';
-import '../utils/main.css';
+import '../../utils/main.css';
 import { Row, Col, PageHeader } from 'react-bootstrap';
-import { RecipeDetail } from './recipedetail.js';
+import { RecipeDetail } from '../recipe/recipedetail.js';
 import $ from 'jquery';
 import cookie from 'react-cookie';
-import {Header} from './header.js';
+import {Header} from '../staticcomps/header.js'
 
-class SearchComponent extends React.Component{
+//First page of the application, displaying all recipes
+class FirstPage extends React.Component{
 
   constructor(props){
     super(props);
@@ -15,9 +16,10 @@ class SearchComponent extends React.Component{
   }
   componentDidMount() {
     var thus = this;
-    var text = this.props.params.text;
+
+    //AJAX call to get all recipes
     $.ajax({
-        url: 'http://localhost:3001/recipes/tag/' + text,
+        url: 'http://localhost:3001/recipes',
         dataType: 'json',
         cache: false,
         type: 'GET',
@@ -28,16 +30,14 @@ class SearchComponent extends React.Component{
             console.log(err);
         }
     });
-
   }
 
   getRecipes() {
     var recipes = this.state.recipes;
     var list = [];
     var length = this.state.recipes.length;
-    var id;
 
-    console.log(id);
+    //Creates a list of all recipes
     for(var i = 0; i < length; i++){
       list.push(<RecipeDetail title={recipes[i].title} ingredients={recipes[i].ingredients} description={recipes[i].description} key={recipes[i].id} />);
     }
@@ -46,24 +46,23 @@ class SearchComponent extends React.Component{
 
   render(){
     var recipes = [];
-    //console.log(this.state.recipes);
+
     if (this.state.recipes.length !== 0){
-      console.log("success");
       recipes = this.getRecipes();
-      console.log("size: " + recipes.length);
     }
 
 
     return(
+      <div>
+      <Header/>
       <div className="fpcontainer">
-        <Header/>
-        <Row>
-          <Col xs={6} md={2}></Col>
+      <Row>
+        <Col xs={6} md={2}></Col>
           <Col xs={6} md={8}>
-            <PageHeader>{cookie.load('username')} <small>This is your search results!</small></PageHeader>
-            </Col>
-            <Col xs={6} md={2}></Col>
-        </Row>
+            <PageHeader>How pie to see you {cookie.load('username')} ! <small>We have all the recipies for your needs!</small></PageHeader>
+          </Col>
+        <Col xs={6} md={2}></Col>
+      </Row>
         <Row>
           <Col xs={6} md={2}></Col>
           <Col xs={6} md={8}>
@@ -73,10 +72,11 @@ class SearchComponent extends React.Component{
         </Row>
 
       </div>
+      </div>
     );
 
   }
 
 }
 
-export {SearchComponent};
+export {FirstPage};
