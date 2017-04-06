@@ -11,6 +11,7 @@ router.get('/', function(req, res, next) {
 
 //Get single recipe
 router.get('/:id', function(req, res, next) {
+    var id = req.params.id;
     models.Recipe.findById(id).then(function(recipe) {
         res.json(recipe);
     });
@@ -66,14 +67,33 @@ router.get('/tag/:tag', function(req, res, next) {
   });
 });
 
+router.post('/edit/:id', function(req, res, next) {
+  models.Recipe.findById(id).then(function(recipe) {
+    recipe.title = req.body.title;
+    recipe.description = req.body.description;
+    recipe.ingredients = req.body.ingredients;
+    recipe.piclink = req.body.piclink;
+  });
+});
+
+router.post('/edittest/:id', function(req, res, next) {
+  var id = parseInt(req.params.id);
+  models.Recipe.findById(id).then(function(recipe) {
+    recipe.title = "BANANARAMA";
+    recipe.description = "BANANARAMA";
+    recipe.ingredients = "BANANARAMA";
+    recipe.piclink = "BANANARAMA";
+  });
+});
+
 //Delete a recipe
 router.post('/delete/:id', function(req, res, next) {
     var rid = parseInt(req.params.id);
     models.Recipe.destroy({
-      where: {
-        id: rid
-      }
-    })
+      where: {id: rid}
+      }).then(function() {
+          res.json("asdf");
+        });
 });
 
 module.exports = router;

@@ -13,6 +13,9 @@ module.exports = function(sequelize, DataTypes) {
         Recipe.belongsToMany(models.Tag, {
           through: 'IsTagged'
         });
+        Recipe.belongsToMany(models.User, {
+          through: 'IsFavourited'
+        });
       }
     }
   });

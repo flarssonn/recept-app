@@ -47,4 +47,14 @@ router.get('/ass', function(req, res, next) {
   });
 
 });
+
+router.post('/editTest/:id', function(req, res, next) {
+  models.Recipe.findById(id).then(function(recipe) {
+    recipe.title = "BANANARAMA";
+    recipe.description = "BANANARAMA";
+    recipe.ingredients = "BANANARAMA";
+    recipe.piclink = "BANANARAMA";
+  });
+});
+
 module.exports = router;

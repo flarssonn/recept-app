@@ -14,6 +14,10 @@ module.exports = function(sequelize, DataTypes) {
         User.hasMany(models.Recipe, {
           as: 'Recipes'
         });
+        User.belongsToMany(models.Recipe, {
+          as: 'Favourites',
+          through: 'IsFavourited'
+        });
       }
     }
   });
