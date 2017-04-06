@@ -11,6 +11,7 @@ router.get('/', function(req, res, next) {
 
 //Get single recipe
 router.get('/:id', function(req, res, next) {
+    var id = req.params.id;
     models.Recipe.findById(id).then(function(recipe) {
         res.json(recipe);
     });
@@ -66,6 +67,21 @@ router.get('/tag/:tag', function(req, res, next) {
   });
 });
 
+// Edit a recipe
+router.post('/edit/:id', function(req, res, next) {
+  var id = req.params.id;
+  models.Recipe.findById(id).then(function(recipe) {
+    recipe.update({
+      title: req.body.title,
+      description: req.body.description,
+      ingredients: req.body.ingredients,
+      piclink: req.body.piclink
+    }).then(function() {
+      res.json('updated');
+    });
+  });
+});
+
 //Delete a recipe
 router.post('/delete/:id', function(req, res, next) {
     var rid = parseInt(req.params.id);
@@ -73,7 +89,9 @@ router.post('/delete/:id', function(req, res, next) {
       where: {
         id: rid
       }
-    })
+    }).then(function() {
+      res.redirect('/recipes');
+    });
 });
 
 module.exports = router;
