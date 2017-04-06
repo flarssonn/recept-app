@@ -1,9 +1,9 @@
 import React from 'react';
-import '../utils/main.css';
+import '../../utils/main.css';
 import {Row, Col, FormGroup, FormControl, ControlLabel, HelpBlock, Form, Button } from 'react-bootstrap';
 import $ from 'jquery';
 import { browserHistory } from 'react-router';
-import {Header} from './header.js';
+import {Header} from '../staticcomps/header.js';
 
 /*
   This component handles the registration of a user.

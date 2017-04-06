@@ -1,5 +1,5 @@
 import React from 'react';
-import '../utils/main.css';
+import '../../utils/main.css';
 import { Row, Col } from 'react-bootstrap';
 import { RecipeDetail } from './recipedetail.js';
 import $ from 'jquery';

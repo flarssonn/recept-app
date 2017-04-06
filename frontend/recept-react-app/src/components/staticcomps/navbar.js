@@ -1,5 +1,5 @@
 import React from 'react';
-import '../utils/main.css';
+import '../../utils/main.css';
 import { ButtonGroup, Button, } from 'react-bootstrap';
 import { browserHistory } from 'react-router';
 import cookie from 'react-cookie';

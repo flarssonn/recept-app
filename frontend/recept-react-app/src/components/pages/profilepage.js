@@ -1,9 +1,9 @@
 import React from 'react';
-import '../utils/main.css';
+import '../../utils/main.css';
 import { PageHeader, Row, Col } from 'react-bootstrap';
-import {UserRecipe} from './userrecipe.js';
+import {UserRecipe} from '../recipe/userrecipe.js';
 import cookie from 'react-cookie';
-import {Header} from './header.js';
+import {Header} from '../staticcomps/header.js';
 
 class ProfilePage extends React.Component {
 
@@ -20,7 +20,7 @@ class ProfilePage extends React.Component {
         </Row>
         <Row>
           <Col xs={6} md={2}></Col>
-          <Col xs={6} md={8}>            
+          <Col xs={6} md={8}>
             <UserRecipe />
           </Col>
           <Col xs={6} md={2}></Col>

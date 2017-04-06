@@ -1,10 +1,10 @@
 import React from 'react';
-import '../utils/main.css';
+import '../../utils/main.css';
 import { Row, Col, PageHeader } from 'react-bootstrap';
-import { RecipeDetail } from './recipedetail.js';
+import { RecipeDetail } from '../recipe/recipedetail.js';
 import $ from 'jquery';
 import cookie from 'react-cookie';
-import {Header} from './header.js';
+import {Header} from '../staticcomps/header.js';
 
 /*
   This class represents the result that we gain from a search.
@@ -45,7 +45,7 @@ class SearchComponent extends React.Component{
     var recipes = this.state.recipes;
     var list = [];
     var length = this.state.recipes.length;
-    
+
     for(var i = 0; i < length; i++){
       list.push(<RecipeDetail title={recipes[i].title} ingredients={recipes[i].ingredients} description={recipes[i].description} key={recipes[i].id} />);
     }
