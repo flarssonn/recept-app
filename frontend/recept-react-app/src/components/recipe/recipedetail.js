@@ -1,7 +1,8 @@
 import React from 'react';
 import '../../utils/main.css';
 import { Thumbnail, Button, Modal } from 'react-bootstrap';
-
+import $ from 'jquery'
+import {browserHistory} from 'react-router'
 
 const RecipeDetail = React.createClass({
   getInitialState() {
@@ -14,6 +15,26 @@ const RecipeDetail = React.createClass({
 
   open() {
     this.setState({ showModal: true });
+  },
+
+  removeRecipe(){
+    var thus = this
+    $.ajax({
+        url: 'http://localhost:3001/recipes/delete/' + this.props.recipeId,
+        dataType: 'json',
+        cache: false,
+        type: 'POST',
+        success: function(data) {
+          console.log("Succsesful DELETE")
+          thus.setState({ showModal: false })
+          const path = '/';
+          browserHistory.push(path);
+          browserHistory.push('/profile')
+        },
+        error: function(err) {
+            console.log(err);
+        }
+    })
   },
 
   render() {
@@ -43,6 +64,11 @@ const RecipeDetail = React.createClass({
             </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.close}>Close</Button>
+
+
+              {this.props.recipeId !== undefined ?
+                <Button onClick={this.removeRecipe} bsStyle="danger">Delete</Button> : <div></div>
+              }
           </Modal.Footer>
         </Modal>
 

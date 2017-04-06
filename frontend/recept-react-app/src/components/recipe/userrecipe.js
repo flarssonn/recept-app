@@ -19,8 +19,7 @@ class UserRecipe extends React.Component{
 
   }
 
-  //Componenet did mount, ajax calls are handled here
-  componentDidMount() {
+  componentWillMount(){
     var thus = this;
 
     //Query all the recipes
@@ -50,7 +49,6 @@ class UserRecipe extends React.Component{
             console.log(err);
         }
     });
-
   }
 
   //Get the recipes related to a user
@@ -69,7 +67,7 @@ class UserRecipe extends React.Component{
     console.log(id);
     for(var i = 0; i < length; i++){
       if(recipes[i].UserId === id){
-        list.push(<RecipeDetail title={recipes[i].title} ingredients={recipes[i].ingredients} description={recipes[i].description} key={recipes[i].id} />);
+        list.push(<RecipeDetail recipeId={recipes[i].id} title={recipes[i].title} ingredients={recipes[i].ingredients} description={recipes[i].description} key={recipes[i].id} />);
       }
 
     }
