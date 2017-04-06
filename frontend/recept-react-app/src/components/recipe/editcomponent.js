@@ -2,8 +2,9 @@ import React from 'react';
 import '../../utils/main.css';
 import $ from 'jquery';
 import {Header} from '../staticcomps/header.js';
-import { Button, FormGroup, FormControl, ControlLabel, HelpBlock, Col, Row } from 'react-bootstrap';
+import { Button, FormGroup, FormControl, ControlLabel, HelpBlock, Col, Row, PageHeader } from 'react-bootstrap';
 import {browserHistory} from 'react-router'
+import cookie from 'react-cookie';
 
 /*
   This class represents the result that we gain from a search.
@@ -82,6 +83,13 @@ class EditComponent extends React.Component{
     return(
       <div>
         <Header />
+        <Row>
+          <Col xs={6} md={2}></Col>
+          <Col xs={6} md={8}>
+            <PageHeader>{cookie.load('username')} <small>Edit a recipie here!</small></PageHeader>
+            </Col>
+            <Col xs={6} md={2}></Col>
+        </Row>
           <Row>
             <Col xs={6} md={2}></Col>
             <Col xs={6} md={8}>
