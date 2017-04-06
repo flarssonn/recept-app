@@ -9,14 +9,14 @@ router.get('/', function(req, res, next) {
   });
 });
 
-/* GET single user by id
+//GET single user by id
 router.get('/:id', function(req, res, next) {
   var id = parseInt(req.params.id);
   models.User.findById(id).then(function(user) {
     res.json(user);
   });
 });
-*/
+
 
 /* Check if user exists by username and password */
 router.get('/checkLogin/:username/:password', function(req, res, next) {
