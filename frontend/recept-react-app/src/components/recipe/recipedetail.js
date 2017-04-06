@@ -36,6 +36,9 @@ const RecipeDetail = React.createClass({
         }
     })
   },
+  editRecipe(){
+    browserHistory.push('/editrecipe/' + this.props.recipeId)
+  },
 
   render() {
 
@@ -64,11 +67,12 @@ const RecipeDetail = React.createClass({
             </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.close}>Close</Button>
-
-
-              {this.props.recipeId !== undefined ?
-                <Button onClick={this.removeRecipe} bsStyle="danger">Delete</Button> : <div></div>
-              }
+            {this.props.recipeId !== undefined ?
+              <Button onClick={this.editRecipe} bsStyle="success">Edit Recipe</Button> : <div></div>
+            }
+            {this.props.recipeId !== undefined ?
+              <Button onClick={this.removeRecipe} bsStyle="danger">Delete</Button> : <div></div>
+            }
           </Modal.Footer>
         </Modal>
 

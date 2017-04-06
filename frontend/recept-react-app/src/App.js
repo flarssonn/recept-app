@@ -7,7 +7,7 @@ import {Registration} from './components/user/registration.js';
 import {Login} from './components/user/login.js';
 import {NewRecipe} from './components/recipe/newrecipe.js';
 import {SearchComponent} from './components/pages/searchcomponent.js';
-
+import {EditComponent} from './components/recipe/editcomponent.js'
 /*
   This is the main component, the parent, it handles the routing in the application.
   It uses browserHistory which is accessible everywhere in the app.
@@ -30,6 +30,7 @@ class App extends Component {
               <Route path="/registration" component={Registration}/>
               <Route path="/newrecipe" component={NewRecipe}/>
               <Route path="/search/:text" component={SearchComponent}/>
+              <Route path="/editrecipe/:id" component={EditComponent}/>
             </Route>
           </Router>
       </div>
