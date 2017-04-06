@@ -1,5 +1,5 @@
 import React from 'react';
-import '../utils/main.css';
+import '../../utils/main.css';
 import { FormGroup, FormControl, Button, Row, Col } from 'react-bootstrap';
 import $ from 'jquery';
 import {browserHistory} from 'react-router';

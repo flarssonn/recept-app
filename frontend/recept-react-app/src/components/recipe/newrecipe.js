@@ -1,9 +1,9 @@
 import React from 'react';
-import '../utils/main.css';
-import { AddRecipie } from '../components/addrecipie.js'
+import '../../utils/main.css';
+import { AddRecipie } from '../recipe/addrecipie.js'
 import { PageHeader, Row, Col } from 'react-bootstrap';
 import cookie from 'react-cookie';
-import {Header} from './header.js';
+import {Header} from '../staticcomps/header.js';
 
 class NewRecipe extends React.Component {
 

@@ -1,10 +1,10 @@
 import React from 'react';
-import '../utils/main.css';
+import '../../utils/main.css';
 import { Row, Col, PageHeader } from 'react-bootstrap';
-import { RecipeDetail } from './recipedetail.js';
+import { RecipeDetail } from '../recipe/recipedetail.js';
 import $ from 'jquery';
 import cookie from 'react-cookie';
-import {Header} from './header.js'
+import {Header} from '../staticcomps/header.js'
 
 //First page of the application, displaying all recipes
 class FirstPage extends React.Component{
@@ -46,7 +46,7 @@ class FirstPage extends React.Component{
 
   render(){
     var recipes = [];
-    
+
     if (this.state.recipes.length !== 0){
       recipes = this.getRecipes();
     }

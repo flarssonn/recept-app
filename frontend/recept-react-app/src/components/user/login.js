@@ -1,8 +1,8 @@
 import React from 'react';
-import '../utils/main.css';
+import '../../utils/main.css';
 import cookie from 'react-cookie';
 import $ from 'jquery';
-import {Header} from './header.js'
+import {Header} from '../staticcomps/header.js'
 import { browserHistory } from 'react-router';
 import { Button, FormGroup, FormControl, ControlLabel, HelpBlock, Row, Col, Form } from 'react-bootstrap';
 //import $ from 'jquery';
