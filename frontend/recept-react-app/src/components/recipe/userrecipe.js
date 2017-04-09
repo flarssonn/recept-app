@@ -4,15 +4,15 @@ import { Row, Col } from 'react-bootstrap'
 import { RecipeDetail } from './recipedetail.js'
 import cookie from 'react-cookie'
 import Service from '../services/service.js'
-/*
-  This class is used to get all the recipes related to a specific user.
-*/
 
+/*
+* This class is used to get all the recipes related to a specific user.
+*/
 class UserRecipe extends React.Component{
 
   //Contructor
   constructor(props){
-    super(props);
+    super(props)
     this.state = {userRecipes: []}
   }
 
@@ -26,7 +26,7 @@ class UserRecipe extends React.Component{
     var list = []
     var recipes = this.state.userRecipes
     for(var i = 0; i < recipes.length; i++){
-      list.push(<RecipeDetail recipeId={recipes[i].id} title={recipes[i].title} ingredients={recipes[i].ingredients} description={recipes[i].description} key={recipes[i].id} />);
+      list.push(<RecipeDetail recipeId={recipes[i].id} title={recipes[i].title} ingredients={recipes[i].ingredients} description={recipes[i].description} key={recipes[i].id} />)
     }
     return list
   }
@@ -49,10 +49,10 @@ class UserRecipe extends React.Component{
           <Col xs={6} md={2}></Col>
         </Row>
       </div>
-    );
+    )
 
   }
 
 }
 
-export {UserRecipe};
+export {UserRecipe}

@@ -1,14 +1,13 @@
-import React from 'react';
-import './utils/main.css';
-import {Row} from 'react-bootstrap';
-import {Col} from 'react-bootstrap';
+import React from 'react'
+import './utils/main.css'
+import {Row} from 'react-bootstrap'
+import {Col} from 'react-bootstrap'
 
 
 class Footer extends React.Component  {
 
   render() {
     return(
-
       <div className="footer">
         <Row className="show-grid">
           <Col xs={12} md={12}>
@@ -16,10 +15,9 @@ class Footer extends React.Component  {
           </Col>
         </Row>
       </div>
-
-    );
+    )
   }
 
 }
 
-export {Footer};
+export {Footer}

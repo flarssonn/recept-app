@@ -1,49 +1,17 @@
-import React from 'react';
-import '../../utils/main.css';
-import cookie from 'react-cookie';
-import $ from 'jquery';
+import React from 'react'
+import '../../utils/main.css'
+import $ from 'jquery'
 import {Header} from '../staticcomps/header.js'
-import { browserHistory } from 'react-router';
-import { Button, FormGroup, FormControl, ControlLabel, HelpBlock, Row, Col, Form } from 'react-bootstrap';
-//import $ from 'jquery';
-//import {browserHistory} from 'react-router';
+import { Button, FormGroup, FormControl, ControlLabel, HelpBlock, Row, Col, Form } from 'react-bootstrap'
+import Service from '../services/service.js'
 
 class Login extends React.Component  {
 
-  onClick (){
+  loginUser (){
       //get data from inputfields
       var name = $("#formControlsUsername").val();
       var password = $("#formControlsPassword").val();
-      var data = {
-        username: name,
-        password: password,
-        email:    name
-      };
-      //AJAX call to log in user. Sets cookie to user if success
-      $.ajax({
-          url: 'http://localhost:3001/users/checkLogin/' + name + '/' + password,
-          dataType: 'json',
-          cache: false,
-          type: 'GET',
-          data: data,
-          success: function(data) {
-            if(data === '1') {
-              console.log("i data.success == 1");
-              cookie.save('username', name, {path: '/'});
-              const path = '/profile';
-              browserHistory.push(path);
-
-            } else {
-              console.log(data);
-              const path = '/';
-              browserHistory.push(path);
-            }
-          },
-          error: function(err) {
-            console.log("det blev error");
-            alert('Something went wrong: ' + err);
-          }
-      });
+      Service.loginUser(name, password)
   }
 
   render() {
@@ -82,7 +50,7 @@ class Login extends React.Component  {
         </Row>
         <Row>
           <Col md={4}></Col>
-          <Col md={2}><Button bsStyle="success" onClick={this.onClick} >Log in</Button></Col>
+          <Col md={2}><Button bsStyle="success" onClick={this.loginUser} >Log in</Button></Col>
           <Col md={2}><Button bsStyle="danger">Forgotten Password</Button></Col>
           <Col md={4}></Col>
         </Row>
@@ -92,4 +60,4 @@ class Login extends React.Component  {
   }
 }
 
-export {Login};
+export {Login}
