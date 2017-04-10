@@ -9,14 +9,27 @@ router.get('/', function(req, res, next) {
   });
 });
 
-//GET single user by id
-router.get('/:id', function(req, res, next) {
-  var id = parseInt(req.params.id);
-  models.User.findById(id).then(function(user) {
+//GET single user by username
+router.get('/:username', function(req, res, next) {
+  var username = req.params.username;
+  models.User.findOne({
+    where: {username: username}
+  }).then(function(user) {
     res.json(user);
   });
 });
 
+// Get recipes form specific user
+router.get("/recipes/:username", function(req, res, next) {
+  var usr = req.params.username;
+  models.User.findOne({
+    where: {username: usr}
+  }).then(function(user) {
+    user.getRecipes().then(function(recipes) {
+      res.json(recipes);
+    });
+  });
+});
 
 /* Check if user exists by username and password */
 router.get('/checkLogin/:username/:password', function(req, res, next) {
@@ -34,17 +47,17 @@ router.get('/checkLogin/:username/:password', function(req, res, next) {
 });
 
 /* Check if user exists by username */
-router.get('/:name', function(req, res, next) {
-  var name = req.params.name;
-  models.User.findByUsername(name).then(function(user) {
-    if (user == null) {
-      res.json("false");
-    }
-    else {
-      res.json("true");
-    }
-  });
-});
+// router.get('/:name', function(req, res, next) {
+//   var name = req.params.name;
+//   models.User.findByUsername(name).then(function(user) {
+//     if (user == null) {
+//       res.json("false");
+//     }
+//     else {
+//       res.json("true");
+//     }
+//   });
+// });
 
 /* POST create new user */
 router.post('/create', function(req, res, next) {
