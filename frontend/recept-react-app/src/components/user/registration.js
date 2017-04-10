@@ -4,7 +4,7 @@ import {Row, Col, FormGroup, FormControl, ControlLabel, HelpBlock, Form, Button 
 import $ from 'jquery'
 import { browserHistory } from 'react-router'
 import {Header} from '../staticcomps/header.js'
-import Service from '../services/service.js'
+import User from '../../model/user.js'
 
 /*
 * This component handles the registration of a user.
@@ -16,7 +16,7 @@ class Registration extends React.Component {
     var userName = $("#formControlsUsername").val()
     var password = $("#formControlsPassword").val()
     var email = $("#formControlsEmail").val()
-    Service.createUser(userName, password, email)
+    User.createUser(userName, password, email)
     const path = '/'
     browserHistory.push(path)
   }

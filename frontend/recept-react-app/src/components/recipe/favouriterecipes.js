@@ -3,7 +3,7 @@ import { Row, Col, PageHeader } from 'react-bootstrap'
 import { RecipeDetail } from './recipedetail.js'
 import {Header} from '../staticcomps/header.js'
 import cookie from 'react-cookie'
-import Service from '../services/service.js'
+import Favorite from '../../model/favorites.js'
 
 class FavouriteRecipes extends React.Component{
 
@@ -13,7 +13,7 @@ class FavouriteRecipes extends React.Component{
   }
 
   componentWillMount() {
-    Service.getFavoriteRecipes(cookie.load('username')).then( favorites => this.setState({favoriteRecipes: favorites}))
+    Favorite.getFavoriteRecipes(cookie.load('username')).then( favorites => this.setState({favoriteRecipes: favorites}))
   }
 
   getFavourites() {

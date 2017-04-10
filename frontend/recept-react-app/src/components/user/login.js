@@ -3,7 +3,7 @@ import '../../utils/main.css'
 import $ from 'jquery'
 import {Header} from '../staticcomps/header.js'
 import { Button, FormGroup, FormControl, ControlLabel, HelpBlock, Row, Col, Form } from 'react-bootstrap'
-import Service from '../services/service.js'
+import User from '../../model/user.js'
 
 class Login extends React.Component  {
 
@@ -11,7 +11,7 @@ class Login extends React.Component  {
       //get data from inputfields
       var name = $("#formControlsUsername").val();
       var password = $("#formControlsPassword").val();
-      Service.loginUser(name, password)
+      User.loginUser(name, password)
   }
 
   render() {

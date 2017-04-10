@@ -3,7 +3,7 @@ import '../../utils/main.css'
 import { Row, Col } from 'react-bootstrap'
 import { RecipeDetail } from './recipedetail.js'
 import cookie from 'react-cookie'
-import Service from '../services/service.js'
+import User from '../../model/user.js'
 
 /*
 * This class is used to get all the recipes related to a specific user.
@@ -18,7 +18,7 @@ class UserRecipe extends React.Component{
 
   //Updates state with logged in users own recipe
   componentWillMount(){
-    Service.getUserRecipes(cookie.load('username')).then(userRecipes => this.setState({userRecipes: userRecipes}))
+    User.getUserRecipes(cookie.load('username')).then(userRecipes => this.setState({userRecipes: userRecipes}))
   }
 
   //Puts users recipes in a list of components showing a single recipe

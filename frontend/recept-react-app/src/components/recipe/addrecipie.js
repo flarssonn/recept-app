@@ -3,14 +3,14 @@ import { Button, FormGroup, FormControl, ControlLabel, HelpBlock, Col } from 're
 import $ from 'jquery'
 import {browserHistory} from 'react-router'
 import cookie from 'react-cookie'
-import Service from '../services/service.js'
+import Recipe from '../../model/recipe.js'
 
 //Class that takes input and creates a new recipe
 class AddRecipie extends React.Component {
 
   //Method for adding a new recipe
   add(title, ingredients, description, picLink, tags){
-    Service.addNewRecipe(cookie.load('username'), title, ingredients, description, picLink, tags).then( () => browserHistory.push('/profile'))
+    Recipe.addNewRecipe(cookie.load('username'), title, ingredients, description, picLink, tags).then( () => browserHistory.push('/profile'))
   }
 
   render () {

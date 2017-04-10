@@ -5,7 +5,7 @@ import {Header} from '../staticcomps/header.js'
 import { Button, FormGroup, FormControl, ControlLabel, HelpBlock, Col, Row, PageHeader } from 'react-bootstrap'
 import {browserHistory} from 'react-router'
 import cookie from 'react-cookie'
-import Service from '../services/service.js'
+import Recipe from '../../model/recipe.js'
 
 //Component used to edit an existing recipe
 class EditComponent extends React.Component{
@@ -19,11 +19,11 @@ class EditComponent extends React.Component{
   //This function will be called when the component mounts. Here we handle the ajax calls.
   componentDidMount() {
     var id = this.props.params.id;
-    Service.getRecipe(id).then( recipe => this.setState({recipe: recipe}) )
+    Recipe.getRecipe(id).then( recipe => this.setState({recipe: recipe}) )
   }
 
   edit(title, ingredients, description){
-    Service.editRecipe(this.props.params.id, title, ingredients, description).then( () => browserHistory.push('/profile') )
+    Recipe.editRecipe(this.props.params.id, title, ingredients, description).then( () => browserHistory.push('/profile') )
   }
 
   //Render

@@ -4,7 +4,7 @@ import { Row, Col, PageHeader } from 'react-bootstrap'
 import { RecipeDetail } from '../recipe/recipedetail.js'
 import cookie from 'react-cookie'
 import {Header} from '../staticcomps/header.js'
-import Service from '../services/service.js'
+import Recipe from '../../model/recipe.js'
 
 //First page of the application, displaying all recipes
 class FirstPage extends React.Component{
@@ -15,7 +15,7 @@ class FirstPage extends React.Component{
   }
 
   componentDidMount() {
-    Service.getRecipes().then( recipes => this.setState({recipes: recipes}))
+    Recipe.getRecipes().then( recipes => this.setState({recipes: recipes}))
   }
 
   getRecipes() {

@@ -3,8 +3,8 @@ import '../../utils/main.css'
 import { Thumbnail, Button, Modal } from 'react-bootstrap'
 import {browserHistory} from 'react-router'
 import cookie from 'react-cookie'
-import Service from '../services/service.js'
-
+import Favorite from '../../model/favorites.js'
+import Recipe from '../../model/recipe.js'
 const RecipeDetail = React.createClass({
 
   getInitialState() {
@@ -20,11 +20,11 @@ const RecipeDetail = React.createClass({
   },
 
   favourite() {
-    Service.addFavoriteRecipe(cookie.load('username'), this.props.recipeId)
+    Favorite.addFavoriteRecipe(cookie.load('username'), this.props.recipeId)
   },
 
   removeRecipe(){
-    Service.removeRecipe(this.props.recipeId).then(function(){
+    Recipe.removeRecipe(this.props.recipeId).then(function(){
       close()
       //Ugly hack to force page reload with removed recipe
       browserHistory.push('/');

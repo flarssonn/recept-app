@@ -4,7 +4,7 @@ import { Row, Col, PageHeader } from 'react-bootstrap'
 import { RecipeDetail } from '../recipe/recipedetail.js'
 import cookie from 'react-cookie'
 import {Header} from '../staticcomps/header.js'
-import Service from '../services/service.js'
+import Recipe from '../../model/recipe.js'
 
 /*
   This class represents the result that we get from a search.
@@ -19,7 +19,7 @@ class SearchComponent extends React.Component{
 
   //This function will be called when the component mounts. Here we handle the ajax calls.
   componentDidMount() {
-    Service.searchRecipe(this.props.params.text).then( searchResults => this.setState({recipes: searchResults}))
+    Recipe.searchRecipe(this.props.params.text).then( searchResults => this.setState({recipes: searchResults}))
   }
 
   //Get the recipes related to the tag and put them in a list.
