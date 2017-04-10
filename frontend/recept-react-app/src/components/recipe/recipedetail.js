@@ -1,47 +1,42 @@
-import React from 'react';
-import '../../utils/main.css';
-import { Thumbnail, Button, Modal } from 'react-bootstrap';
-import $ from 'jquery'
+import React from 'react'
+import '../../utils/main.css'
+import { Thumbnail, Button, Modal } from 'react-bootstrap'
 import {browserHistory} from 'react-router'
+import cookie from 'react-cookie'
+import Service from '../services/service.js'
 
 const RecipeDetail = React.createClass({
+
   getInitialState() {
-    return { showModal: false };
+    return { showModal: false }
   },
 
   close() {
-    this.setState({ showModal: false });
+    this.setState({ showModal: false })
   },
 
   open() {
-    this.setState({ showModal: true });
+    this.setState({ showModal: true })
+  },
+
+  favourite() {
+    Service.addFavoriteRecipe(cookie.load('username'), this.props.recipeId)
   },
 
   removeRecipe(){
-    var thus = this
-    $.ajax({
-        url: 'http://localhost:3001/recipes/delete/' + this.props.recipeId,
-        dataType: 'json',
-        cache: false,
-        type: 'POST',
-        success: function(data) {
-          console.log("Succsesful DELETE")
-          thus.setState({ showModal: false })
-          const path = '/';
-          browserHistory.push(path);
-          browserHistory.push('/profile')
-        },
-        error: function(err) {
-            console.log(err);
-        }
+    Service.removeRecipe(this.props.recipeId).then(function(){
+      close()
+      //Ugly hack to force page reload with removed recipe
+      browserHistory.push('/');
+      browserHistory.push('/profile')
     })
   },
+
   editRecipe(){
     browserHistory.push('/editrecipe/' + this.props.recipeId)
   },
 
   render() {
-
 
     return (
       <div>
@@ -51,6 +46,7 @@ const RecipeDetail = React.createClass({
           <p>Ingredients: {this.props.ingredients}</p>
           <p>Description: {this.props.description}</p>
           <Button bsStyle="default" bsSize="small" onClick={this.open}>See More!</Button>
+          <Button bsStyle="warning" bsSize="small" onClick={this.favourite}>Favourite</Button>
         </Thumbnail>
 
         <Modal show={this.state.showModal} onHide={this.close}>
@@ -77,9 +73,8 @@ const RecipeDetail = React.createClass({
         </Modal>
 
       </div>
-    );
+    )
   }
-});
+})
 
-
-export {RecipeDetail};
+export {RecipeDetail}

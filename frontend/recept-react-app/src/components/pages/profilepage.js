@@ -1,9 +1,9 @@
-import React from 'react';
-import '../../utils/main.css';
-import { PageHeader, Row, Col } from 'react-bootstrap';
-import {UserRecipe} from '../recipe/userrecipe.js';
-import cookie from 'react-cookie';
-import {Header} from '../staticcomps/header.js';
+import React from 'react'
+import '../../utils/main.css'
+import { PageHeader, Row, Col } from 'react-bootstrap'
+import {UserRecipe} from '../recipe/userrecipe.js'
+import cookie from 'react-cookie'
+import {Header} from '../staticcomps/header.js'
 
 class ProfilePage extends React.Component {
 
@@ -27,10 +27,9 @@ class ProfilePage extends React.Component {
         </Row>
 
       </div>
-
-    );
+    )
 
   }
 }
 
-export {ProfilePage};
+export {ProfilePage}

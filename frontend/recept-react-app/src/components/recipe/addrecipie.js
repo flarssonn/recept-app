@@ -1,39 +1,16 @@
 import React from 'react'
-
-import { Button, FormGroup, FormControl, ControlLabel, HelpBlock, Col } from 'react-bootstrap';
-import $ from 'jquery';
-import {browserHistory} from 'react-router';
-import cookie from 'react-cookie';
+import { Button, FormGroup, FormControl, ControlLabel, HelpBlock, Col } from 'react-bootstrap'
+import $ from 'jquery'
+import {browserHistory} from 'react-router'
+import cookie from 'react-cookie'
+import Service from '../services/service.js'
 
 //Class that takes input and creates a new recipe
 class AddRecipie extends React.Component {
 
   //Method for adding a new recipe
-  add(recipeTitle, recipeIngredients, recipeDescription, recipeTags){
-    var name = cookie.load('username');
-    //URL to be called in the REST-API
-    var addUrl = 'http://localhost:3001/recipes/add/' + name
-    var data = {
-      title: recipeTitle,
-      ingredients: recipeIngredients,
-      description: recipeDescription,
-      piclink: "",
-      tags: recipeTags
-  };
-    //AJAX call to backend
-    $.ajax({
-        url: addUrl,
-        dataType: 'json',
-        cache: false,
-        type: 'POST',
-        data: data,
-        success: function(data) {
-            console.log('Success');
-        },
-        error: function(err) {
-            alert('Something went wrong: ' + err);
-        }
-    });
+  add(title, ingredients, description, picLink, tags){
+    Service.addNewRecipe(cookie.load('username'), title, ingredients, description, picLink, tags).then( () => browserHistory.push('/profile'))
   }
 
   render () {
@@ -48,9 +25,8 @@ class AddRecipie extends React.Component {
             <FormControl {...props} />
             {help && <HelpBlock>{help}</HelpBlock>}
           </Col>
-
         </FormGroup>
-      );
+      )
     }
 
   return (
@@ -60,14 +36,11 @@ class AddRecipie extends React.Component {
         if (!$("#formControlsTitle").val().trim()) {
           return
         }
-        this.add($("#formControlsTitle").val(), $("#formControlsIngredients").val(), $("#formControlsDescription").val(), $("#formControlsTags").val() )
-
-        $("#formControlsTitle").val("");
-        $("#formControlsIngredients").val("");
-        $("#formControlsDescription").val("");
-        $("#formControlsTags").val("");
-
-        browserHistory.push('/profile');
+        this.add($("#formControlsTitle").val(), $("#formControlsIngredients").val(), $("#formControlsDescription").val(), "", $("#formControlsTags").val())
+        $("#formControlsTitle").val("")
+        $("#formControlsIngredients").val("")
+        $("#formControlsDescription").val("")
+        $("#formControlsTags").val("")
       }}>
 
         <FieldGroup

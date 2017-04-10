@@ -1,15 +1,14 @@
-import React from 'react';
-import '../../utils/main.css';
+import React from 'react'
+import '../../utils/main.css'
 import { AddRecipie } from '../recipe/addrecipie.js'
-import { PageHeader, Row, Col } from 'react-bootstrap';
-import cookie from 'react-cookie';
-import {Header} from '../staticcomps/header.js';
+import { PageHeader, Row, Col } from 'react-bootstrap'
+import cookie from 'react-cookie'
+import {Header} from '../staticcomps/header.js'
 
 class NewRecipe extends React.Component {
 
   render () {
     return (
-
       <div>
         <Header/>
         <Row>
@@ -26,13 +25,9 @@ class NewRecipe extends React.Component {
           </Col>
           <Col xs={6} md={2}></Col>
         </Row>
-
       </div>
-
-
-    );
-
+    )
   }
 }
 
-export {NewRecipe};
+export {NewRecipe}

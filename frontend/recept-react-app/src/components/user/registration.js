@@ -1,43 +1,24 @@
-import React from 'react';
-import '../../utils/main.css';
-import {Row, Col, FormGroup, FormControl, ControlLabel, HelpBlock, Form, Button } from 'react-bootstrap';
-import $ from 'jquery';
-import { browserHistory } from 'react-router';
-import {Header} from '../staticcomps/header.js';
+import React from 'react'
+import '../../utils/main.css'
+import {Row, Col, FormGroup, FormControl, ControlLabel, HelpBlock, Form, Button } from 'react-bootstrap'
+import $ from 'jquery'
+import { browserHistory } from 'react-router'
+import {Header} from '../staticcomps/header.js'
+import Service from '../services/service.js'
 
 /*
-  This component handles the registration of a user.
+* This component handles the registration of a user.
 */
-
 class Registration extends React.Component {
 
-  //Submit the input from the form to the db.
-  submit(e) {
-    var email = $("#formControlsEmail").val();
-    var password = $("#formControlsPassword").val();
-    var username = $("#formControlsUsername").val();
-    var data = {
-      username: username,
-      password: password,
-      email:    email
-    };
-    //Ajax call to the create router on the server.
-    $.ajax({
-        url: 'http://localhost:3001/users/create',
-        dataType: 'json',
-        cache: false,
-        type: 'POST',
-        data: data,
-        success: function(data) {
-
-            console.log(data);
-        },
-        error: function(err) {
-            alert('Something went wrong: ' + err);
-        }
-    });
-    const path = '/';
-    browserHistory.push(path);
+  //Creates a new user
+  createUser() {
+    var userName = $("#formControlsUsername").val()
+    var password = $("#formControlsPassword").val()
+    var email = $("#formControlsEmail").val()
+    Service.createUser(userName, password, email)
+    const path = '/'
+    browserHistory.push(path)
   }
 
   //Render
@@ -53,12 +34,10 @@ class Registration extends React.Component {
             <FormControl {...props} />
             {help && <HelpBlock>{help}</HelpBlock>}
           </Col>
-
         </FormGroup>
-      );
+      )
     }
 
-    //HTML-code that will be rendered.
     return(
       <div>
       <Header/>
@@ -90,7 +69,7 @@ class Registration extends React.Component {
                 type="password"
                 placeholder="Enter password"
               />
-            <Button bsStyle="success" type="submit" >Create Account</Button>
+            <Button bsStyle="success" onClick={this.createUser} >Create Account</Button>
             </Form>
           </Col>
           <Col md={4}></Col>
@@ -102,9 +81,9 @@ class Registration extends React.Component {
         </Row>
       </div>
       </div>
-    );
+    )
   }
 
 }
 
-export {Registration};
+export {Registration}

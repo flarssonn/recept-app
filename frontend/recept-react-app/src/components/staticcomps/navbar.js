@@ -1,8 +1,8 @@
-import React from 'react';
-import '../../utils/main.css';
-import { ButtonGroup, Button, } from 'react-bootstrap';
-import { browserHistory } from 'react-router';
-import cookie from 'react-cookie';
+import React from 'react'
+import '../../utils/main.css'
+import { ButtonGroup, Button, } from 'react-bootstrap'
+import { browserHistory } from 'react-router'
+import cookie from 'react-cookie'
 
 class Navbar extends React.Component  {
 
@@ -37,36 +37,34 @@ class Navbar extends React.Component  {
       browserHistory.push('/profile');
     }
 
+    handleFavouriteRecipesClick(e){
+      browserHistory.push('/favouriterecipes');
+    }
+
     render() {
         //If there is a logged in user get logged in navbar
         if(this.state.loggedInUser !== undefined){
-
           return(
-
             <div className="navbar" key={this.state.isLoggedIn}>
                 <ButtonGroup >
                   <Button bsStyle="success" onClick={this.handleMyRecipesClick}>My Recipes</Button>
+                  <Button bsStyle="success" onClick={this.handleFavouriteRecipesClick}>Favourites</Button> : <div></div>
                   <Button bsStyle="success" onClick={this.handleNewRecipeClick} >Add New Recipe</Button>
                   <Button bsStyle="danger" onClick={this.handleLogOutClick}>Log Out</Button>
                 </ButtonGroup>
               </div>
-
-          );
-
+          )
         }else{
-
           return(
-
               <div className="navbar" key={this.state.isLoggedIn}>
                   <ButtonGroup >
                     <Button bsStyle="success" onClick={this.handleProfileClick}>Log In</Button>
                     <Button bsStyle="primary" onClick={this.handleRegistrationClick}>Create Account</Button>
                   </ButtonGroup>
                 </div>
-          );
+          )
         }
     }
-
 }
 
-export {Navbar};
+export {Navbar}

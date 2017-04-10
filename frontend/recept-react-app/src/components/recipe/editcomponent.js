@@ -1,67 +1,29 @@
-import React from 'react';
-import '../../utils/main.css';
-import $ from 'jquery';
-import {Header} from '../staticcomps/header.js';
-import { Button, FormGroup, FormControl, ControlLabel, HelpBlock, Col, Row, PageHeader } from 'react-bootstrap';
+import React from 'react'
+import '../../utils/main.css'
+import $ from 'jquery'
+import {Header} from '../staticcomps/header.js'
+import { Button, FormGroup, FormControl, ControlLabel, HelpBlock, Col, Row, PageHeader } from 'react-bootstrap'
 import {browserHistory} from 'react-router'
-import cookie from 'react-cookie';
+import cookie from 'react-cookie'
+import Service from '../services/service.js'
 
-/*
-  This class represents the result that we gain from a search.
-*/
-
+//Component used to edit an existing recipe
 class EditComponent extends React.Component{
 
   //Constructor
   constructor(props){
     super(props);
     this.state = {recipe: {}}
-
   }
 
   //This function will be called when the component mounts. Here we handle the ajax calls.
   componentDidMount() {
-    var thus = this;
     var id = this.props.params.id;
-
-    //Get the recipes related to the tag from the db.
-    $.ajax({
-        url: 'http://localhost:3001/recipes/' + id,
-        dataType: 'json',
-        cache: false,
-        type: 'GET',
-        success: function(data) {
-          thus.setState({recipe: data});
-        },
-        error: function(err) {
-            console.log(err);
-        }
-    });
-
+    Service.getRecipe(id).then( recipe => this.setState({recipe: recipe}) )
   }
 
   edit(title, ingredients, description){
-    var url = 'http://localhost:3001/recipes/edit/' + this.props.params.id
-    var data = {
-      title: title,
-      ingredients: ingredients,
-      description: description,
-      piclink: ""
-    }
-    $.ajax({
-        url: url,
-        dataType: 'json',
-        cache: false,
-        type: 'POST',
-        data: data,
-        success: function(data) {
-            console.log('Success EDIT');
-        },
-        error: function(err) {
-            alert('Something went wrong: ' + err);
-        }
-    })
-    browserHistory.push('/profile')
+    Service.editRecipe(this.props.params.id, title, ingredients, description).then( () => browserHistory.push('/profile') )
   }
 
   //Render
@@ -132,19 +94,14 @@ class EditComponent extends React.Component{
                     Edit a Recipie
                   </Button>
                 </Col>
-
                 </form>
               </div>
             </Col>
             <Col xs={6} md={2}></Col>
           </Row>
-
       </div>
-
     )
-
   }
-
 }
 
-export {EditComponent};
+export {EditComponent}
